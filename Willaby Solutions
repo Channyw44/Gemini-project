@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willaby Solutions - Save Time, Save Money, Run Smarter</title>
+    <meta name="description" content="Willaby Solutions helps small business owners automate tasks, reclaim hours, reduce overhead, and stop leaving money on the table.">
+    <meta name="keywords" content="AI solutions, business automation, small business, save time, reduce overhead, Willaby Solutions, about Willaby">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #e5e7eb; /* Light text */
+            /* Body background removed */
+        }
+        /* Simple fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+            animation-play-state: paused;
+        }
+        /* Subtle hover scale animation */
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.03);
+        }
+        /* Basic 3D-ish effect on hover for cards */
+        .card-hover-effect {
+            transition: transform 0.3s ease;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-5px) rotateX(5deg);
+        }
+        /* Header scroll effect */
+        #main-header {
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        #main-header.scrolled {
+            background-color: rgba(17, 24, 39, 0.85); /* Dark semi-transparent */
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* --- Fancy Button Styles --- */
+        .fancy-button {
+          padding: 10px 16px; 
+          border: none;
+          font-size: 0.9rem; 
+          font-weight: 600;
+          cursor: pointer; position: relative;
+          background: linear-gradient(90deg, #5bfcc4, #f593e4, #71a4f0); 
+          border-radius: 10px; 
+          color: #fff !important; transition: all 0.3s ease;
+          box-shadow: inset 0px 0px 4px #ffffffa9, inset 0px 25px 20px #000, 0px 4px 8px #000000cc; 
+          text-shadow: 1px 1px 1px #000; text-decoration: none; text-align: center;
+          display: inline-block;
+        }
+        .fancy-button.block { display: block; width: 100%; }
+        .fancy-button::before {
+          content: ""; position: absolute; inset: 0; margin: auto;
+          border-radius: 10px; 
+          filter: blur(0); z-index: -1; box-shadow: none;
+          background: conic-gradient(#00000000 80deg, #ffffff, #f34ad7, #5bfcc4, #00000000 280deg);
+          transition: all 0.3s ease;
+        }
+        .fancy-button:hover::before { filter: blur(12px); } 
+        .fancy-button:active::before { filter: blur(4px); transform: translateY(1px); } 
+        .fancy-button:active {
+          box-shadow: inset 0px 0px 4px #ffffffa9, inset 0px 25px 20px #000; 
+          margin-top: 2px; 
+        }
+        /* --- End Fancy Button Styles --- */
+
+        /* --- Fixed Background Container --- */
+        .fixed-background {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        /* --- Rain Effect Styles (Blue) --- */
+        .rain-container {
+          position: absolute;
+          inset: 0;
+        }
+        .rain-container::before {
+          content: "";
+          position: absolute;
+          inset: -145%;
+          rotate: -45deg;
+          background: #000;
+          background-image: radial-gradient(4px 100px at 0px 235px, #38bdf8, #0000),
+            radial-gradient(4px 100px at 300px 235px, #38bdf8, #0000),
+            radial-gradient(1.5px 1.5px at 150px 117.5px, #38bdf8 100%, #0000 150%),
+            radial-gradient(4px 100px at 0px 252px, #38bdf8, #0000),
+            radial-gradient(4px 100px at 300px 252px, #38bdf8, #0000),
+            radial-gradient(1.5px 1.5px at 150px 126px, #38bdf8 100%, #0000 150%),
+            radial-gradient(4px 100px at 0px 150px, #38bdf8, #0000),
+            radial-gradient(4px 100px at 300px 150px, #38bdf8, #0000),
+            radial-gradient(1.5px 1.5px at 150px 75px, #38bdf8 100%, #0000 150%),
+            radial-gradient(4px 100px at 0px 253px, #38bdf8, #0000),
+            radial-gradient(4px 100px at 300px 253px, #38bdf8, #0000),
+            radial-gradient(1.5px 1.5px at 150px 126.5px, #38bdf8 100%, #0000 150%),
+            radial-gradient(4px 100px at 0px 204px, #38bdf8, #0000),
+            radial-gradient(4px 100px at 300px 204px, #38bdf8, #0000),
+            radial-gradient(1.5px 1.5px at 150px 102px, #38bdf8 100%, #0000 150%),
+            radial-gradient(4px 100px at 0px 134px, #38bdf8, #0000),
+            radial-gradient(4px 100px at 300px 134px, #38bdf8, #0000),
+            radial-gradient(1.5px 1.5px at 150px 67px, #38bdf8 100%, #0000 150%),
+            radial-gradient(4px 100px at 0px 179px, #38bdf8, #0000),
+            radial-gradient(4px 100px at 300px 179px, #38bdf8, #0000),
+            radial-gradient(1.5px 1.5px at 150px 89.5px, #38bdf8 100%, #0000 150%),
+            radial-gradient(4px 100px at 0px 299px, #38bdf8, #0000),
+            radial-gradient(4px 100px at 300px 299px, #38bdf8, #0000),
+            radial-gradient(1.5px 1.5px at 150px 149.5px, #38bdf8 100%, #0000 150%),
+            radial-gradient(4px 100px at 0px 215px, #38bdf8, #0000),
+            radial-gradient(4px 100px at 300px 215px, #38bdf8, #0000),
+            radial-gradient(1.5px 1.5px at 150px 107.5px, #38bdf8 100%, #0000 150%),
+            radial-gradient(4px 100px at 0px 281px, #38bdf8, #0000),
+            radial-gradient(4px 100px at 300px 281px, #38bdf8, #0000),
+            radial-gradient(1.5px 1.5px at 150px 140.5px, #38bdf8 100%, #0000 150%),
+            radial-gradient(4px 100px at 0px 158px, #38bdf8, #0000),
+            radial-gradient(4px 100px at 300px 158px, #38bdf8, #0000),
+            radial-gradient(1.5px 1.5px at 150px 79px, #38bdf8 100%, #0000 150%),
+            radial-gradient(4px 100px at 0px 210px, #38bdf8, #0000),
+            radial-gradient(4px 100px at 300px 210px, #38bdf8, #0000),
+            radial-gradient(1.5px 1.5px at 150px 105px, #38bdf8 100%, #0000 150%);
+          background-size:
+            300px 235px, 300px 235px, 300px 235px, 300px 252px, 300px 252px, 300px 252px,
+            300px 150px, 300px 150px, 300px 150px, 300px 253px, 300px 253px, 300px 253px,
+            300px 204px, 300px 204px, 300px 204px, 300px 134px, 300px 134px, 300px 134px,
+            300px 179px, 300px 179px, 300px 179px, 300px 299px, 300px 299px, 300px 299px,
+            300px 215px, 300px 215px, 300px 215px, 300px 281px, 300px 281px, 300px 281px,
+            300px 158px, 300px 158px, 300px 158px, 300px 210px, 300px 210px, 300px 210px;
+          animation: rain-animation 150s linear infinite;
+        }
+
+        @keyframes rain-animation { /* Keyframes remain the same */
+          0% { background-position: /* Start positions */
+              0px 220px, 3px 220px, 151.5px 337.5px, 25px 24px, 28px 24px, 176.5px 150px,
+              50px 16px, 53px 16px, 201.5px 91px, 75px 224px, 78px 224px, 226.5px 350.5px,
+              100px 19px, 103px 19px, 251.5px 121px, 125px 120px, 128px 120px, 276.5px 187px,
+              150px 31px, 153px 31px, 301.5px 120.5px, 175px 235px, 178px 235px, 326.5px 384.5px,
+              200px 121px, 203px 121px, 351.5px 228.5px, 225px 224px, 228px 224px, 376.5px 364.5px,
+              250px 26px, 253px 26px, 401.5px 105px, 275px 75px, 278px 75px, 426.5px 180px; }
+          to { background-position: /* End positions */
+              0px 6800px, 3px 6800px, 151.5px 6917.5px, 25px 13632px, 28px 13632px, 176.5px 13758px,
+              50px 5416px, 53px 5416px, 201.5px 5491px, 75px 17175px, 78px 17175px, 226.5px 17301.5px,
+              100px 5119px, 103px 5119px, 251.5px 5221px, 125px 8428px, 128px 8428px, 276.5px 8495px,
+              150px 9876px, 153px 9876px, 301.5px 9965.5px, 175px 13391px, 178px 13391px, 326.5px 13540.5px,
+              200px 14741px, 203px 14741px, 351.5px 14848.5px, 225px 18770px, 228px 18770px, 376.5px 18910.5px,
+              250px 5082px, 253px 5082px, 401.5px 5161px, 275px 6375px, 278px 6375px, 426.5px 6480px; }
+        }
+        /* --- End Rain Effect Styles --- */
+
+        /* Content Wrapper */
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+         /* Hero Section Adjustments */
+        #hero {
+            position: relative;
+        }
+        .hero-content-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Add subtle text shadow for readability */
+        .floating-text {
+             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Dark shadow */
+        }
+        .floating-text-light {
+             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Lighter shadow for darker text */
+        }
+        .service-item {
+            padding: 1rem; /* Equivalent to p-4 */
+            border-radius: 0.75rem; /* Equivalent to rounded-xl */
+        }
+
+        /* Shining Star Animation */
+        .shining-star {
+            display: inline-block; /* Allows transform */
+            animation: shine 2s infinite ease-in-out;
+        }
+        @keyframes shine {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff; /* White glow */
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.1);
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f0f8ff; /* Brighter white/aliceblue glow */
+            }
+        }
+
+        /* --- Floating CTA Bar Styles (Right Side - Smaller) --- */
+        #floating-cta-bar {
+            position: fixed;
+            top: 50%;
+            right: -320px; 
+            width: 300px; 
+            transform: translateY(-50%);
+            background-color: rgba(17, 24, 39, 0.95);
+            padding: 1rem; 
+            z-index: 1000;
+            transition: right 0.7s ease-in-out;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+            text-align: center;
+            border-top-left-radius: 0.75rem;
+            border-bottom-left-radius: 0.75rem;
+        }
+        #floating-cta-bar.visible {
+            right: 0;
+        }
+      
+        /* --- Modal Styles --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000; /* Higher than CTA bar */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+        }
+        .modal-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            background-color: #1f2937; /* dark-card color */
+            padding: 2rem;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            text-align: center;
+            max-width: 90%;
+            width: 400px;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.visible .modal-content {
+            transform: scale(1);
+        }
+        .modal-close-button {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background: none;
+            border: none;
+            color: #9ca3af; /* gray-400 */
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .modal-close-button:hover {
+            color: #e5e7eb; /* gray-200 */
+        }
+
+        /* Elegant Brand Styling */
+        .elegant-brand {
+            font-family: 'Playfair Display', serif; /* More elegant serif font */
+            font-weight: 700; /* Bold */
+            /* text-primary is already white via Tailwind config */
+            animation: elegantPulse 3s infinite ease-in-out;
+        }
+
+        @keyframes elegantPulse {
+            0%, 100% {
+                transform: scale(1);
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7), 0 0 5px rgba(255,255,255,0.3);
+            }
+            50% {
+                transform: scale(1.03);
+                text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9), 0 0 15px rgba(255,255,255,0.5);
+            }
+        }
+        /* About Me Section Styling */
+        .about-me-image {
+            width: 200px; /* Adjust as needed */
+            height: 200px;
+            border-radius: 50%; /* Circular image */
+            object-fit: cover; /* Ensures image covers the area well */
+            border: 3px solid #ffffff; /* White border, consistent with primary accent */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+
+    </style>
+    <script>
+        tailwind.config = {
+          darkMode: 'class',
+          theme: {
+            extend: {
+              colors: {
+                primary: '#ffffff',
+                secondary: '#6366f1', 
+                'dark-bg': '#111827',
+                'dark-card': '#1f2937',
+                'dark-text': '#e5e7eb',
+              },
+              fontFamily: { 
+                  'playfair': ['Playfair Display', 'serif'],
+              },
+              animation: {
+                'fade-in': 'fadeIn 0.5s ease-out forwards',
+                'rain-animation': 'rain-animation 150s linear infinite',
+                'shine': 'shine 2s infinite ease-in-out', 
+                'elegant-pulse': 'elegantPulse 3s infinite ease-in-out', 
+              },
+              keyframes: {
+                fadeIn: {
+                  '0%': { opacity: '0', transform: 'translateY(10px)' },
+                  '100%': { opacity: '1', transform: 'translateY(0)' },
+                },
+                'rain-animation': {}, 
+                shine: { 
+                    '0%, 100%': { opacity: '1', transform: 'scale(1)', textShadow: '0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff' },
+                    '50%': { opacity: '0.7', transform: 'scale(1.1)', textShadow: '0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f0f8ff' },
+                },
+                elegantPulse: { 
+                    '0%, 100%': { transform: 'scale(1)', textShadow: '1px 1px 3px rgba(0, 0, 0, 0.7), 0 0 5px rgba(255,255,255,0.3)' },
+                    '50%': { transform: 'scale(1.03)', textShadow: '1px 1px 5px rgba(0, 0, 0, 0.9), 0 0 15px rgba(255,255,255,0.5)' },
+                }
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="text-dark-text">
+
+    <div class="fixed-background">
+        <div class="rain-container"></div> 
+    </div>
+
+    <div class="content-wrapper">
+        <header id="main-header" class="sticky top-0 z-50 w-full">
+            <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="#" class="text-2xl text-primary elegant-brand">Willaby Solutions</a>
+                <button id="mobile-menu-button" class="md:hidden text-dark-text hover:text-primary focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+                <div class="hidden md:flex space-x-6 floating-text">
+                    <a href="#services" class="hover:text-primary transition duration-300">What We Help With</a>
+                    <a href="#why-matters" class="hover:text-primary transition duration-300">Why It Matters</a>
+                    <a href="#about-me" class="hover:text-primary transition duration-300">About Me</a> 
+                    <a href="https://sites.google.com/view/willabysolutions/blog" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition duration-300">Blog</a> 
+                </div>
+            </nav>
+            <div id="mobile-menu" class="hidden md:hidden bg-dark-card absolute w-full shadow-lg">
+                <a href="#services" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">What We Help With</a>
+                <a href="#why-matters" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">Why It Matters</a>
+                <a href="#about-me" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">About Me</a> 
+                <a href="https://sites.google.com/view/willabysolutions/blog" target="_blank" rel="noopener noreferrer" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">Blog</a> 
+            </div>
+        </header>
+
+        <main>
+            <section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+                <div class="hero-content-container px-6 fade-in floating-text">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight">
+                        Take Back Your <span class="text-primary">Time</span>. Save More <span class="text-primary">Money</span>.
+                    </h1>
+                    <p class="text-3xl md:text-4xl text-gray-200 mb-6 max-w-3xl mx-auto floating-text-light">
+                        Let Your Business Run Smarter—Without Burning Out
+                    </p>
+                    <p class="text-xl text-gray-300 mb-4 max-w-2xl mx-auto floating-text-light">
+                        You didn’t start your business to be glued to your phone or inbox all day. You’re wearing every hat—and it’s costing you more than just time.
+                    </p>
+                    <p class="text-lg text-gray-300 mb-10 max-w-2xl mx-auto floating-text-light">
+                        We help small business owners like you reclaim your hours, reduce overhead, and stop leaving money on the table—by automating everyday tasks so your business runs like clockwork (even when you’re off the clock).
+                    </p>
+                </div>
+            </section>
+
+            <section id="services" class="py-20">
+                 <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-4xl font-bold mb-6 fade-in floating-text">What We Help With</h2>
+                    <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto floating-text-light">
+                        We streamline the messy stuff that eats up your time:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                        <div class="service-item card-hover-effect fade-in" style="animation-delay: 0.1s;">
+                            <h3 class="text-2xl font-semibold mb-3 floating-text">✅ Auto Answering + Booking</h3>
+                            <p class="text-gray-300 floating-text-light">No more missed calls or no-shows.</p>
+                        </div>
+                        <div class="service-item card-hover-effect fade-in" style="animation-delay: 0.2s;">
+                            <h3 class="text-2xl font-semibold mb-3 floating-text">✅ Smart Scheduling</h3>
+                            <p class="text-gray-300 floating-text-light">Let clients book (or reschedule) themselves.</p>
+                        </div>
+                        <div class="service-item card-hover-effect fade-in" style="animation-delay: 0.3s;">
+                            <h3 class="text-2xl font-semibold mb-3 floating-text">✅ Follow-Ups & Reminders</h3>
+                            <p class="text-gray-300 floating-text-light">Set it and forget it. We’ve got it handled.</p>
+                        </div>
+                        <div class="service-item card-hover-effect fade-in" style="animation-delay: 0.4s;">
+                            <h3 class="text-2xl font-semibold mb-3 floating-text">✅ Payments & Invoices</h3>
+                            <p class="text-gray-300 floating-text-light">Get paid without the paper chase.</p>
+                        </div>
+                        <div class="service-item card-hover-effect fade-in" style="animation-delay: 0.5s;">
+                            <h3 class="text-2xl font-semibold mb-3 floating-text">✅ Lead Capture & Nurturing</h3>
+                            <p class="text-gray-300 floating-text-light">Every inquiry becomes a warm lead.</p>
+                        </div>
+                        <div class="service-item card-hover-effect fade-in" style="animation-delay: 0.6s;">
+                            <h3 class="text-2xl font-semibold mb-3 floating-text">✅ Review Requests</h3>
+                            <p class="text-gray-300 floating-text-light">More 5-stars. No awkward ask.</p>
+                        </div>
+                    </div>
+                     <p class="text-2xl text-gray-100 mt-12 floating-text">Think: personal assistant vibes <span class="text-primary">without the payroll.</span></p>
+                </div>
+            </section>
+
+            <section id="why-matters" class="py-20">
+                 <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-4xl font-bold mb-6 fade-in floating-text"><span class="shining-star">✨</span> Why It Matters</h2>
+                    <div class="max-w-3xl mx-auto">
+                        <p class="text-3xl text-primary mb-6 floating-text">Time saved = money earned.</p>
+                        <p class="text-2xl text-gray-200 mb-6 floating-text-light">⛔️ No more lost leads, missed appointments, or burnout.</p>
+                        <p class="text-xl text-gray-300 floating-text-light">
+                            With simple automations running behind the scenes, you stay focused on what you do best—and stop wasting hours on what you don’t.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pricing-philosophy" class="py-10"> <div class="container mx-auto px-6 text-center">
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto floating-text-light fade-in">
+                        Every business is unique, and so are its needs—that's why I don’t offer one-size-fits-all pricing. Whether you're just getting started or ready to scale with automation, I’ll work with you to create a custom plan that fits your goals, your workflow, and your budget. No bloated packages or hidden fees—just exactly what you need, nothing you don’t. I'll even help you DIY if you want it. Ready to talk through what makes sense for you? Just hit the Book an Appointment button on the right.
+                    </p>
+                </div>
+            </section>
+
+            <section id="about-me" class="py-20">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-4xl font-bold mb-12 fade-in floating-text">About Me</h2>
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-10 max-w-4xl mx-auto">
+                        <div class="md:w-1/3 flex justify-center fade-in" style="animation-delay: 0.1s;">
+                            <img src="https://placehold.co/200x200/6366f1/FFFFFF?text=Your+Photo" alt="A portrait of the business owner" class="about-me-image" onerror="this.onerror=null;this.src='https://placehold.co/200x200/333333/FFFFFF?text=Image+Error';">
+                        </div>
+                        <div class="md:w-2/3 text-left md:text-left space-y-4">
+                            <p class="text-lg text-gray-200 floating-text-light fade-in" style="animation-delay: 0.2s;">
+                                I work with small business owners and solopreneurs who are out here doing all the things—and still showing up with heart. Whether you’re building from scratch or refining what you’ve already created, I’m here to make the journey smoother, smarter, and way more aligned with the life you actually want.
+                            </p>
+                            <p class="text-lg text-gray-200 floating-text-light fade-in" style="animation-delay: 0.3s;">
+                                I know how real the hustle is. I’ve been there—wearing all the hats, figuring things out as I go, and learning what works through trial, error, and a whole lot of resilience. That’s why I’m passionate about sharing strategies that work in real life—not just on paper.
+                            </p>
+                            <p class="text-lg text-gray-200 floating-text-light fade-in" style="animation-delay: 0.4s;">
+                                From systems to mindset, marketing to momentum—I’m here to help you navigate the tough spots, celebrate the wins, and build a business that feels as good as it looks.
+                            </p>
+                            <p class="text-lg text-gray-100 font-semibold floating-text fade-in" style="animation-delay: 0.5s;">
+                                Let’s turn your vision into something sustainable, impactful, and uniquely yours—because success should feel like <span class="text-primary">you</span>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="py-8">
+            <div class="container mx-auto px-6 text-center text-gray-400 floating-text-light">
+                 <p>&copy; <span id="current-year"></span> Willaby Solutions. All rights reserved.</p>
+            </div>
+        </footer>
+    </div> 
+    
+    <div id="floating-cta-bar">
+        <button id="open-contact-modal-button" class="fancy-button block w-full">Book an Appointment</button>
+    </div>
+
+    <div id="contact-modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-contact-modal-button" class="modal-close-button" aria-label="Close modal">&times;</button>
+            <h2 class="text-2xl font-bold mb-6 floating-text text-primary">Let’s Get You Set Up</h2>
+            <p class="text-lg text-gray-300 mb-8 floating-text-light">
+                You're just one click away from freeing up your calendar and your cash flow.
+            </p>
+            <div class="flex flex-col space-y-4">
+                <a href="tel:218-382-1153" class="fancy-button cta-button block">
+                    Call or Text Me
+                </a>
+                <a href="mailto:cwillaby@willabysolutions.com" class="fancy-button cta-button block">
+                    Email Me
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Header scroll effect
+            const header = document.getElementById('main-header');
+            if (header) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
+
+            // Set current year in footer
+            const currentYearSpan = document.getElementById('current-year');
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
+
+            // Intersection Observer for fade-in animations (for main content)
+            const fadeInElements = document.querySelectorAll('.content-wrapper .fade-in'); 
+            if (fadeInElements.length > 0) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const computedStyle = window.getComputedStyle(entry.target);
+                            if (computedStyle.animationPlayState !== 'running' && computedStyle.opacity !== '1') {
+                                entry.target.style.opacity = '1';
+                                entry.target.style.animationPlayState = 'running';
+                            }
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                fadeInElements.forEach(el => {
+                    el.style.opacity = '0';
+                    el.style.animationPlayState = 'paused';
+                    observer.observe(el);
+                });
+            }
+
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+
+            // Floating CTA Bar Logic
+            const floatingCtaBar = document.getElementById('floating-cta-bar');
+            if (floatingCtaBar) {
+                setTimeout(() => {
+                    floatingCtaBar.classList.add('visible');
+                }, 5000); // 5000 milliseconds = 5 seconds
+            }
+
+            // Modal Logic
+            const openModalButton = document.getElementById('open-contact-modal-button');
+            const closeModalButton = document.getElementById('close-contact-modal-button');
+            const modalOverlay = document.getElementById('contact-modal-overlay');
+            const ctaButtonsInModal = modalOverlay.querySelectorAll('.cta-button');
+
+            function fireConfetti() {
+                if (typeof confetti !== 'function') {
+                    console.error("Confetti function not loaded");
+                    return;
+                }
+                var duration = 1.5 * 1000; 
+                var animationEnd = Date.now() + duration;
+                var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 2001 }; 
+
+                function randomInRange(min, max) {
+                    return Math.random() * (max - min) + min;
+                }
+
+                var interval = setInterval(function() {
+                    var timeLeft = animationEnd - Date.now();
+
+                    if (timeLeft <= 0) {
+                        return clearInterval(interval);
+                    }
+
+                    var particleCount = 50 * (timeLeft / duration);
+                    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+                }, 250);
+            }
+
+
+            function showModal() {
+                fireConfetti(); 
+                modalOverlay.classList.add('visible');
+            }
+
+            function hideModal() {
+                modalOverlay.classList.remove('visible');
+            }
+
+            if (openModalButton) {
+                openModalButton.addEventListener('click', showModal);
+            }
+            if (closeModalButton) {
+                closeModalButton.addEventListener('click', hideModal);
+            }
+            if (modalOverlay) {
+                modalOverlay.addEventListener('click', function(event) {
+                    if (event.target === modalOverlay) {
+                        hideModal();
+                    }
+                });
+            }
+            
+            ctaButtonsInModal.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    fireConfetti(); 
+                });
+            });
+
+        });
+    </script>
+
+</body>
+</html>
