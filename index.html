@@ -215,8 +215,8 @@
         #floating-cta-bar.visible {
             right: 2rem; /* Slide into view from the right */
         }
-        .chat-widget-icon {
-            background-color: #6366f1; /* Secondary color */
+        .chat-widget-icon { 
+            background-color: #6366f1; /* Secondary color (blue bubble) */
             color: white;
             width: 60px;
             height: 60px;
@@ -231,8 +231,8 @@
             transform: scale(1.1);
         }
         .chat-widget-icon svg {
-            width: 32px;
-            height: 32px;
+            width: 30px; 
+            height: 30px;
         }
       
         /* --- Modal Styles --- */
@@ -343,113 +343,106 @@
 
         /* New Pricing Section Styling */
         #custom-pricing-section {
-            background-color: rgba(17, 24, 39, 0.9); 
-            border-radius: 0.75rem; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            background-color: transparent; 
+            border-radius: 0; 
+            box-shadow: none;
             margin-top: 2.5rem; 
             margin-bottom: 2.5rem; 
         }
         .pricing-tier-card {
-            background-color: rgba(31, 41, 55, 0.85); 
-            border: 1px solid rgba(75, 85, 99, 0.7); 
+            background-color: transparent; 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 1.5rem; 
+            border-radius: 0.75rem; 
         }
         .pricing-tier-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            box-shadow: 0 10px 20px rgba(255,255,255,0.1); 
         }
         .pricing-tier-card.highlighted {
-            background-color: rgba(56, 189, 248, 0.2); 
+            background-color: transparent; 
             border-color: #ffffff; 
         }
         .pricing-tier-card.highlighted .popular-badge {
             background-color: #ffffff; 
-            color: #38bdf8; 
+            color: #111827; 
         }
 
         /* Carousel Styles - Updated for Stacking/Floating Effect */
         .carousel-container {
             position: relative;
-            max-width: 700px; /* Adjust for desired width of active slide */
+            max-width: 1000px; /* Increased max-width */
             margin: 3rem auto; 
-            height: 450px; /* Adjust to fit your content + some space */
-            perspective: 1000px; /* For 3D effect if desired */
+            height: 800px; /* Increased height */
+            perspective: 1500px; 
         }
         .carousel-slide {
             position: absolute;
-            width: 60%; /* Width of each card */
+            width: 50%; /* Adjusted width for larger slides */
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Center the stack */
-            background-color: rgba(31, 41, 55, 0.9); /* Slightly opaque card background */
-            border-radius: 0.75rem; /* rounded-xl */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            padding: 1.5rem;
+            background-color: transparent; /* Slide background is transparent */
+            border-radius: 0.75rem; 
+            padding: 0; 
             text-align: center;
-            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.5s, z-index 0s 0.25s;
+            transition: transform 0.7s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.6s ease-in-out, z-index 0s 0.35s;
             cursor: pointer;
-            opacity: 0; /* Hidden by default, JS will manage visibility */
+            opacity: 0; 
             z-index: 1;
+            will-change: transform, opacity; 
         }
         .carousel-slide img {
-            max-width: 100%;
-            max-height: 250px; /* Max height for image within slide */
-            margin: 0 auto 1rem auto;
-            border-radius: 0.5rem; /* rounded-lg */
+            width: 100%; 
+            height: auto; 
+            max-height: 600px; /* Significantly increased max height for images */
+            object-fit: contain; 
+            border-radius: 0.75rem; /* Rounded corners for images */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.35); /* Slightly stronger shadow for images */
         }
+        /* Slide content (titles/descriptions) are removed, so .slide-content div is not needed */
+
         .carousel-slide.active {
-            transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1) rotateY(0deg);
             opacity: 1;
             z-index: 10;
             cursor: default;
         }
-        .carousel-slide.prev-1 { /* Previous slide */
-            transform: translate(-90%, -50%) scale(0.85) rotate(-5deg);
-            opacity: 0.7;
+        /* Adjust transform values for larger slides and wider spread */
+        .carousel-slide.prev-1 { 
+            transform: translateX(-85%) translateY(-50%) scale(0.8) rotateY(40deg);
+            opacity: 0.6;
             z-index: 9;
         }
-        .carousel-slide.next-1 { /* Next slide */
-            transform: translate(-10%, -50%) scale(0.85) rotate(5deg);
-            opacity: 0.7;
+        .carousel-slide.prev-1:hover {
+            transform: translateX(-85%) translateY(-50%) scale(0.85) rotateY(35deg);
+        }
+        .carousel-slide.next-1 { 
+            transform: translateX(-15%) translateY(-50%) scale(0.8) rotateY(-40deg);
+            opacity: 0.6;
             z-index: 9;
         }
-         /* For slides further back, if you want to show more than 1 on each side */
+         .carousel-slide.next-1:hover {
+            transform: translateX(-15%) translateY(-50%) scale(0.85) rotateY(-35deg);
+        }
         .carousel-slide.prev-2 {
-            transform: translate(-120%, -50%) scale(0.7) rotate(-10deg);
-            opacity: 0.4;
+            transform: translateX(-115%) translateY(-45%) scale(0.65) rotateY(50deg);
+            opacity: 0.3;
             z-index: 8;
         }
         .carousel-slide.next-2 {
-            transform: translate(20%, -50%) scale(0.7) rotate(10deg);
-            opacity: 0.4;
+            transform: translateX(15%) translateY(-45%) scale(0.65) rotateY(-50deg);
+            opacity: 0.3;
             z-index: 8;
         }
-        /* Hide slides that are too far back */
         .carousel-slide.hide-far {
             opacity: 0;
-            transform: translate(-50%, -50%) scale(0.5);
+            transform: translate(-50%, -50%) scale(0.4) rotateY(0deg); 
             z-index: 1;
         }
-
-
-        .carousel-controls { /* Repositioned below carousel */
-            text-align: center;
-            margin-top: 1.5rem;
+        .carousel-controls { 
+            display: none; 
         }
-        .carousel-button {
-            background-color: rgba(255, 255, 255, 0.15);
-            border: none;
-            color: white;
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin: 0 0.5rem;
-        }
-        .carousel-button:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-        /* Dots removed for this style */
         .carousel-dots { display: none; }
 
 
@@ -550,59 +543,35 @@
                     <h2 class="text-4xl font-bold mb-12 fade-in floating-text">Our Showcase</h2>
                     <div class="carousel-container fade-in" style="animation-delay: 0.1s;">
                         <div class="carousel-slide">
-                            <img src="https://placehold.co/600x350/1a202c/e2e8f0?text=Showcase+1" alt="Showcase image 1">
-                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 1 Title</h3>
-                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 1.</p>
+                            <img src="1_Revolutionizing-SMBs-with-Al-Automation.png" alt="Revolutionizing SMBs with AI Automation" onerror="this.onerror=null;this.src='https://placehold.co/800x600/1a202c/e2e8f0?text=Image+Error';">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://placehold.co/600x350/2d3748/e2e8f0?text=Showcase+2" alt="Showcase image 2">
-                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 2 Title</h3>
-                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 2.</p>
+                            <img src="2_The-SMB-Automation-Landscape-in-2025.png" alt="The SMB Automation Landscape in 2025" onerror="this.onerror=null;this.src='https://placehold.co/800x600/2d3748/e2e8f0?text=Image+Error';">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://placehold.co/600x350/4a5568/e2e8f0?text=Showcase+3" alt="Showcase image 3">
-                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 3 Title</h3>
-                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 3.</p>
+                            <img src="3_Key-Business-Challenges-Solved-by-Al-Automation.png" alt="Key Business Challenges Solved by AI Automation" onerror="this.onerror=null;this.src='https://placehold.co/800x600/4a5568/e2e8f0?text=Image+Error';">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://placehold.co/600x350/1a202c/e2e8f0?text=Showcase+4" alt="Showcase image 4">
-                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 4 Title</h3>
-                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 4.</p>
+                            <img src="4_Strategic-Implementation-Areas.png" alt="Strategic Implementation Areas for AI" onerror="this.onerror=null;this.src='https://placehold.co/800x600/1a202c/e2e8f0?text=Image+Error';">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://placehold.co/600x350/2d3748/e2e8f0?text=Showcase+5" alt="Showcase image 5">
-                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 5 Title</h3>
-                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 5.</p>
+                            <img src="5_Al-Tools-Transforming-SMBs-in-2025.png" alt="AI Tools Transforming SMBs in 2025" onerror="this.onerror=null;this.src='https://placehold.co/800x600/2d3748/e2e8f0?text=Image+Error';">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://placehold.co/600x350/4a5568/e2e8f0?text=Showcase+6" alt="Showcase image 6">
-                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 6 Title</h3>
-                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 6.</p>
+                            <img src="6_Customer-Support-Transformation.png" alt="Customer Support Transformation with AI" onerror="this.onerror=null;this.src='https://placehold.co/800x600/4a5568/e2e8f0?text=Image+Error';">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://placehold.co/600x350/1a202c/e2e8f0?text=Showcase+7" alt="Showcase image 7">
-                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 7 Title</h3>
-                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 7.</p>
+                            <img src="7_Marketing-and-Sales-Automation-Benefits.png" alt="Marketing and Sales Automation Benefits" onerror="this.onerror=null;this.src='https://placehold.co/800x600/1a202c/e2e8f0?text=Image+Error';">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://placehold.co/600x350/2d3748/e2e8f0?text=Showcase+8" alt="Showcase image 8">
-                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 8 Title</h3>
-                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 8.</p>
+                            <img src="8_Implementation-Roadmap.png" alt="AI Implementation Roadmap" onerror="this.onerror=null;this.src='https://placehold.co/800x600/2d3748/e2e8f0?text=Image+Error';">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://placehold.co/600x350/4a5568/e2e8f0?text=Showcase+9" alt="Showcase image 9">
-                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 9 Title</h3>
-                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 9.</p>
+                            <img src="9_Measuring-Success-KPIs-and-ROI.png" alt="Measuring Success KPIs and ROI" onerror="this.onerror=null;this.src='https://placehold.co/800x600/4a5568/e2e8f0?text=Image+Error';">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://placehold.co/600x350/1a202c/e2e8f0?text=Showcase+10" alt="Showcase image 10">
-                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 10 Title</h3>
-                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 10.</p>
+                            <img src="10_Next-Steps-Begin-Your-Al-Automation-Journey.png" alt="Next Steps: Begin Your AI Automation Journey" onerror="this.onerror=null;this.src='https://placehold.co/800x600/1a202c/e2e8f0?text=Image+Error';">
                         </div>
-                    </div>
-                    <div class="carousel-controls">
-                        <button class="carousel-button prev" aria-label="Previous slide">&#10094;</button>
-                        <button class="carousel-button next" aria-label="Next slide">&#10095;</button>
                     </div>
                     </div>
             </section>
@@ -727,7 +696,7 @@
                     <h2 class="text-4xl font-bold mb-12 fade-in floating-text">About Me</h2>
                     <div class="flex flex-col md:flex-row items-center justify-center gap-10 max-w-4xl mx-auto">
                         <div class="md:w-1/3 flex justify-center fade-in" style="animation-delay: 0.1s;">
-                            <img src="Profile.png" alt="A portrait of the business owner" class="about-me-image" onerror="this.onerror=null;this.src='https://placehold.co/200x200/333333/FFFFFF?text=Image+Error';">
+                            <img src="Profile.png" alt="A portrait of the business owner" class="about-me-image" onerror="this.onerror=null;this.src='https://placehold.co/200x200/333333/FFFFFF?text=Image+Error+Check+Profile.png';">
                         </div>
                         <div class="md:w-2/3 text-left md:text-left space-y-4">
                             <p class="text-lg text-gray-200 floating-text-light fade-in" style="animation-delay: 0.2s;">
@@ -759,7 +728,7 @@
     <div id="floating-cta-bar">
         <button id="open-contact-modal-button" class="chat-widget-icon" aria-label="Open contact form">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3.543-3.091a9.117 9.117 0 0 1-1.255 0c-5.142 0-9.359-4.217-9.359-9.359s4.217-9.359 9.359-9.359c1.753 0 3.396.492 4.788 1.362Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
             </svg>
         </button>
     </div>
@@ -934,11 +903,10 @@
             const carousel = document.querySelector('.carousel-container');
             if (carousel) {
                 const slides = carousel.querySelectorAll('.carousel-slide');
-                const prevButton = carousel.querySelector('.carousel-button.prev');
-                const nextButton = carousel.querySelector('.carousel-button.next');
+                // const prevButton = carousel.querySelector('.carousel-button.prev'); // Arrows removed
+                // const nextButton = carousel.querySelector('.carousel-button.next'); // Arrows removed
                 let activeSlideIndex = 0;
-                const visibleOffset = 2; // How many slides to show partially on each side
-
+                
                 function updateCarousel() {
                     slides.forEach((slide, i) => {
                         slide.classList.remove('active', 'prev-1', 'next-1', 'prev-2', 'next-2', 'hide-far');
@@ -947,21 +915,21 @@
 
                         if (offset === 0) {
                             slide.classList.add('active');
-                        } else if (offset === 1) {
+                        } else if (offset === 1 || (activeSlideIndex === slides.length - 1 && i === 0) ) { // Next slide or wrap around
                             slide.classList.add('next-1');
-                        } else if (offset === -1) {
+                        } else if (offset === -1 || (activeSlideIndex === 0 && i === slides.length - 1) ) { // Previous slide or wrap around
                             slide.classList.add('prev-1');
-                        } else if (offset === 2) {
+                        } else if (offset === 2 || (activeSlideIndex === slides.length - 2 && i === 0) || (activeSlideIndex === slides.length - 1 && i === 1) ) {
                             slide.classList.add('next-2');
-                        } else if (offset === -2) {
+                        } else if (offset === -2 || (activeSlideIndex === 0 && i === slides.length - 2) || (activeSlideIndex === 1 && i === slides.length - 1) ) {
                             slide.classList.add('prev-2');
                         } else {
                             slide.classList.add('hide-far');
                         }
-                        // Ensure correct z-index for stacking
                         slide.style.zIndex = slides.length - Math.abs(offset);
                     });
                 }
+
 
                 slides.forEach((slide, i) => {
                     slide.addEventListener('click', () => {
@@ -972,19 +940,6 @@
                     });
                 });
 
-                if (prevButton) {
-                    prevButton.addEventListener('click', () => {
-                        activeSlideIndex = (activeSlideIndex - 1 + slides.length) % slides.length;
-                        updateCarousel();
-                    });
-                }
-
-                if (nextButton) {
-                    nextButton.addEventListener('click', () => {
-                        activeSlideIndex = (activeSlideIndex + 1) % slides.length;
-                        updateCarousel();
-                    });
-                }
                 if (slides.length > 0) updateCarousel(); // Initial setup
             }
             // --- End Stacking Carousel Logic ---
