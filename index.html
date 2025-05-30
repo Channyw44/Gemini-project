@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Willaby Solutions - Save Time, Save Money, Run Smarter</title>
     <meta name="description" content="Willaby Solutions helps small business owners automate tasks, reclaim hours, reduce overhead, and stop leaving money on the table.">
-    <meta name="keywords" content="AI solutions, business automation, small business, save time, reduce overhead, Willaby Solutions, about Willaby">
+    <meta name="keywords" content="AI solutions, business automation, small business, save time, reduce overhead, Willaby Solutions, about Willaby, pricing, slideshow, carousel">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,9 +15,7 @@
         body {
             font-family: 'Inter', sans-serif;
             color: #e5e7eb; /* Light text */
-            /* Body background removed */
         }
-        /* Simple fade-in animation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -26,35 +24,30 @@
             animation: fadeIn 0.5s ease-out forwards;
             animation-play-state: paused;
         }
-        /* Subtle hover scale animation */
         .hover-scale {
             transition: transform 0.3s ease;
         }
         .hover-scale:hover {
             transform: scale(1.03);
         }
-        /* Basic 3D-ish effect on hover for cards */
         .card-hover-effect {
             transition: transform 0.3s ease;
         }
         .card-hover-effect:hover {
             transform: translateY(-5px) rotateX(5deg);
         }
-        /* Header scroll effect */
         #main-header {
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
         #main-header.scrolled {
-            background-color: rgba(17, 24, 39, 0.85); /* Dark semi-transparent */
+            background-color: rgba(17, 24, 39, 0.85);
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
-        /* Smooth scroll */
         html {
             scroll-behavior: smooth;
         }
 
-        /* --- Fancy Button Styles --- */
         .fancy-button {
           padding: 10px 16px; 
           border: none;
@@ -82,9 +75,7 @@
           box-shadow: inset 0px 0px 4px #ffffffa9, inset 0px 25px 20px #000; 
           margin-top: 2px; 
         }
-        /* --- End Fancy Button Styles --- */
 
-        /* --- Fixed Background Container --- */
         .fixed-background {
             position: fixed;
             inset: 0;
@@ -92,7 +83,6 @@
             overflow: hidden;
         }
 
-        /* --- Rain Effect Styles (Blue) --- */
         .rain-container {
           position: absolute;
           inset: 0;
@@ -212,24 +202,37 @@
             }
         }
 
-        /* --- Floating CTA Bar Styles (Right Side - Smaller) --- */
+        /* --- Floating CTA Bar Styles (Right Side - Icon) --- */
         #floating-cta-bar {
             position: fixed;
-            top: 50%;
-            right: -320px; 
-            width: 300px; 
-            transform: translateY(-50%);
-            background-color: rgba(17, 24, 39, 0.95);
-            padding: 1rem; 
+            bottom: 2rem; /* Position from bottom */
+            right: -100px; /* Initially off-screen */
+            width: auto; /* Auto width for icon */
             z-index: 1000;
             transition: right 0.7s ease-in-out;
-            box-shadow: -2px 0 10px rgba(0,0,0,0.3);
-            text-align: center;
-            border-top-left-radius: 0.75rem;
-            border-bottom-left-radius: 0.75rem;
+            cursor: pointer;
         }
         #floating-cta-bar.visible {
-            right: 0;
+            right: 2rem; /* Slide into view from the right */
+        }
+        .chat-widget-icon {
+            background-color: #6366f1; /* Secondary color */
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease-in-out;
+        }
+        .chat-widget-icon:hover {
+            transform: scale(1.1);
+        }
+        .chat-widget-icon svg {
+            width: 32px;
+            height: 32px;
         }
       
         /* --- Modal Styles --- */
@@ -239,11 +242,11 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
+            background-color: rgba(0, 0, 0, 0.7); 
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 2000; /* Higher than CTA bar */
+            z-index: 2000; 
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0s linear 0.3s;
@@ -254,13 +257,13 @@
             transition: opacity 0.3s ease;
         }
         .modal-content {
-            background-color: #1f2937; /* dark-card color */
+            background-color: #1f2937; 
             padding: 2rem;
-            border-radius: 0.75rem; /* rounded-xl */
+            border-radius: 0.75rem; 
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            text-align: center;
+            text-align: left; /* Align form labels to left */
             max-width: 90%;
-            width: 400px;
+            width: 450px; /* Adjusted width for form */
             position: relative;
             transform: scale(0.9);
             transition: transform 0.3s ease;
@@ -274,20 +277,47 @@
             right: 0.75rem;
             background: none;
             border: none;
-            color: #9ca3af; /* gray-400 */
+            color: #9ca3af; 
             font-size: 1.5rem;
             cursor: pointer;
             line-height: 1;
         }
         .modal-close-button:hover {
-            color: #e5e7eb; /* gray-200 */
+            color: #e5e7eb; 
         }
+        /* Form Styles */
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 500; /* font-medium */
+            color: #d1d5db; /* gray-300 */
+        }
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #374151; /* gray-700 */
+            border: 1px solid #4b5563; /* gray-600 */
+            color: #e5e7eb; /* gray-200 */
+            border-radius: 0.5rem; /* rounded-lg */
+            margin-bottom: 1rem;
+            transition: border-color 0.2s ease-in-out;
+        }
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #6366f1; /* secondary color */
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
+        }
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
 
         /* Elegant Brand Styling */
         .elegant-brand {
-            font-family: 'Playfair Display', serif; /* More elegant serif font */
-            font-weight: 700; /* Bold */
-            /* text-primary is already white via Tailwind config */
+            font-family: 'Playfair Display', serif; 
+            font-weight: 700; 
             animation: elegantPulse 3s infinite ease-in-out;
         }
 
@@ -303,13 +333,124 @@
         }
         /* About Me Section Styling */
         .about-me-image {
-            width: 200px; /* Adjust as needed */
+            width: 200px; 
             height: 200px;
-            border-radius: 50%; /* Circular image */
-            object-fit: cover; /* Ensures image covers the area well */
-            border: 3px solid #ffffff; /* White border, consistent with primary accent */
+            border-radius: 50%; 
+            object-fit: cover; 
+            border: 3px solid #ffffff; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
+
+        /* New Pricing Section Styling */
+        #custom-pricing-section {
+            background-color: rgba(17, 24, 39, 0.9); 
+            border-radius: 0.75rem; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            margin-top: 2.5rem; 
+            margin-bottom: 2.5rem; 
+        }
+        .pricing-tier-card {
+            background-color: rgba(31, 41, 55, 0.85); 
+            border: 1px solid rgba(75, 85, 99, 0.7); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pricing-tier-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+        .pricing-tier-card.highlighted {
+            background-color: rgba(56, 189, 248, 0.2); 
+            border-color: #ffffff; 
+        }
+        .pricing-tier-card.highlighted .popular-badge {
+            background-color: #ffffff; 
+            color: #38bdf8; 
+        }
+
+        /* Carousel Styles - Updated for Stacking/Floating Effect */
+        .carousel-container {
+            position: relative;
+            max-width: 700px; /* Adjust for desired width of active slide */
+            margin: 3rem auto; 
+            height: 450px; /* Adjust to fit your content + some space */
+            perspective: 1000px; /* For 3D effect if desired */
+        }
+        .carousel-slide {
+            position: absolute;
+            width: 60%; /* Width of each card */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center the stack */
+            background-color: rgba(31, 41, 55, 0.9); /* Slightly opaque card background */
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.5s, z-index 0s 0.25s;
+            cursor: pointer;
+            opacity: 0; /* Hidden by default, JS will manage visibility */
+            z-index: 1;
+        }
+        .carousel-slide img {
+            max-width: 100%;
+            max-height: 250px; /* Max height for image within slide */
+            margin: 0 auto 1rem auto;
+            border-radius: 0.5rem; /* rounded-lg */
+        }
+        .carousel-slide.active {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+            z-index: 10;
+            cursor: default;
+        }
+        .carousel-slide.prev-1 { /* Previous slide */
+            transform: translate(-90%, -50%) scale(0.85) rotate(-5deg);
+            opacity: 0.7;
+            z-index: 9;
+        }
+        .carousel-slide.next-1 { /* Next slide */
+            transform: translate(-10%, -50%) scale(0.85) rotate(5deg);
+            opacity: 0.7;
+            z-index: 9;
+        }
+         /* For slides further back, if you want to show more than 1 on each side */
+        .carousel-slide.prev-2 {
+            transform: translate(-120%, -50%) scale(0.7) rotate(-10deg);
+            opacity: 0.4;
+            z-index: 8;
+        }
+        .carousel-slide.next-2 {
+            transform: translate(20%, -50%) scale(0.7) rotate(10deg);
+            opacity: 0.4;
+            z-index: 8;
+        }
+        /* Hide slides that are too far back */
+        .carousel-slide.hide-far {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5);
+            z-index: 1;
+        }
+
+
+        .carousel-controls { /* Repositioned below carousel */
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        .carousel-button {
+            background-color: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 0 0.5rem;
+        }
+        .carousel-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        /* Dots removed for this style */
+        .carousel-dots { display: none; }
 
 
     </style>
@@ -368,15 +509,19 @@
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
                 <div class="hidden md:flex space-x-6 floating-text">
+                    <a href="#carousel-section" class="hover:text-primary transition duration-300">Showcase</a> 
                     <a href="#services" class="hover:text-primary transition duration-300">What We Help With</a>
                     <a href="#why-matters" class="hover:text-primary transition duration-300">Why It Matters</a>
+                    <a href="#custom-pricing-section" class="hover:text-primary transition duration-300">Pricing</a> 
                     <a href="#about-me" class="hover:text-primary transition duration-300">About Me</a> 
                     <a href="https://sites.google.com/view/willabysolutions/blog" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition duration-300">Blog</a> 
                 </div>
             </nav>
             <div id="mobile-menu" class="hidden md:hidden bg-dark-card absolute w-full shadow-lg">
+                <a href="#carousel-section" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">Showcase</a> 
                 <a href="#services" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">What We Help With</a>
                 <a href="#why-matters" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">Why It Matters</a>
+                <a href="#custom-pricing-section" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">Pricing</a> 
                 <a href="#about-me" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">About Me</a> 
                 <a href="https://sites.google.com/view/willabysolutions/blog" target="_blank" rel="noopener noreferrer" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">Blog</a> 
             </div>
@@ -398,6 +543,68 @@
                         We help small business owners like you reclaim your hours, reduce overhead, and stop leaving money on the table—by automating everyday tasks so your business runs like clockwork (even when you’re off the clock).
                     </p>
                 </div>
+            </section>
+
+            <section id="carousel-section" class="py-20">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-4xl font-bold mb-12 fade-in floating-text">Our Showcase</h2>
+                    <div class="carousel-container fade-in" style="animation-delay: 0.1s;">
+                        <div class="carousel-slide">
+                            <img src="https://placehold.co/600x350/1a202c/e2e8f0?text=Showcase+1" alt="Showcase image 1">
+                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 1 Title</h3>
+                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 1.</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://placehold.co/600x350/2d3748/e2e8f0?text=Showcase+2" alt="Showcase image 2">
+                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 2 Title</h3>
+                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 2.</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://placehold.co/600x350/4a5568/e2e8f0?text=Showcase+3" alt="Showcase image 3">
+                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 3 Title</h3>
+                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 3.</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://placehold.co/600x350/1a202c/e2e8f0?text=Showcase+4" alt="Showcase image 4">
+                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 4 Title</h3>
+                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 4.</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://placehold.co/600x350/2d3748/e2e8f0?text=Showcase+5" alt="Showcase image 5">
+                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 5 Title</h3>
+                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 5.</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://placehold.co/600x350/4a5568/e2e8f0?text=Showcase+6" alt="Showcase image 6">
+                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 6 Title</h3>
+                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 6.</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://placehold.co/600x350/1a202c/e2e8f0?text=Showcase+7" alt="Showcase image 7">
+                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 7 Title</h3>
+                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 7.</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://placehold.co/600x350/2d3748/e2e8f0?text=Showcase+8" alt="Showcase image 8">
+                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 8 Title</h3>
+                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 8.</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://placehold.co/600x350/4a5568/e2e8f0?text=Showcase+9" alt="Showcase image 9">
+                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 9 Title</h3>
+                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 9.</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://placehold.co/600x350/1a202c/e2e8f0?text=Showcase+10" alt="Showcase image 10">
+                            <h3 class="text-xl font-semibold mt-2 mb-1 floating-text">Slide 10 Title</h3>
+                            <p class="text-sm text-gray-400 floating-text-light">Description for slide 10.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-button prev" aria-label="Previous slide">&#10094;</button>
+                        <button class="carousel-button next" aria-label="Next slide">&#10095;</button>
+                    </div>
+                    </div>
             </section>
 
             <section id="services" class="py-20">
@@ -432,7 +639,7 @@
                             <p class="text-gray-300 floating-text-light">More 5-stars. No awkward ask.</p>
                         </div>
                     </div>
-                     <p class="text-2xl text-gray-100 mt-12 floating-text">Think: personal assistant vibes <span class="text-primary">without the payroll.</span></p>
+                     <p class="text-2xl text-gray-100 mt-12 floating-text">Think: personal assistant <span class="text-primary">without the payroll.</span></p>
                 </div>
             </section>
 
@@ -449,19 +656,78 @@
                 </div>
             </section>
 
-            <section id="pricing-philosophy" class="py-10"> <div class="container mx-auto px-6 text-center">
-                    <p class="text-xl text-gray-300 max-w-3xl mx-auto floating-text-light fade-in">
-                        Every business is unique, and so are its needs—that's why I don’t offer one-size-fits-all pricing. Whether you're just getting started or ready to scale with automation, I’ll work with you to create a custom plan that fits your goals, your workflow, and your budget. No bloated packages or hidden fees—just exactly what you need, nothing you don’t. I'll even help you DIY if you want it. Ready to talk through what makes sense for you? Just hit the Book an Appointment button on the right.
+            <section id="custom-pricing-section" class="py-20">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-4xl font-bold mb-6 fade-in floating-text">Custom Solutions, Transparent Pricing</h2>
+                    <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto floating-text-light fade-in" style="animation-delay: 0.1s;">
+                        Every business is unique, and so are its needs—that's why I don’t offer one-size-fits-all pricing. Whether you're just getting started or ready to scale with automation, I’ll work with you to create a custom plan that fits your goals, your workflow, and your budget.
                     </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12 max-w-4xl mx-auto fade-in" style="animation-delay: 0.2s;">
+                        <div class="text-center p-2">
+                            <p class="text-gray-200 floating-text-light">✓ No bloated packages or hidden fees</p>
+                        </div>
+                        <div class="text-center p-2">
+                            <p class="text-gray-200 floating-text-light">✓ Exactly what you need, nothing you don’t</p>
+                        </div>
+                        <div class="text-center p-2">
+                            <p class="text-gray-200 floating-text-light">✓ DIY guidance available if preferred</p>
+                        </div>
+                        <div class="text-center p-2 md:col-span-3"> <p class="text-gray-200 floating-text-light">✓ Flexible implementation timelines</p>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        <div class="pricing-tier-card p-8 rounded-xl flex flex-col fade-in" style="animation-delay: 0.3s;">
+                            <h3 class="text-2xl font-semibold mb-2 text-primary">Starter Automation</h3>
+                            <p class="text-gray-300 text-sm mb-4 floating-text-light">Perfect for solopreneurs just beginning to automate their business processes.</p>
+                            <p class="text-4xl font-bold my-4 text-white floating-text">From $497</p>
+                            <a href="#floating-cta-bar" onclick="document.getElementById('open-contact-modal-button').click(); return false;" class="fancy-button block w-full mt-auto mb-6">Book a Free Consultation</a>
+                            <h4 class="text-lg font-semibold mb-2 text-gray-200 floating-text">WHAT'S INCLUDED</h4>
+                            <ul class="text-gray-400 space-y-1 text-sm text-left floating-text-light">
+                                <li>✓ 1 core automation system</li>
+                                <li>✓ Basic integration setup</li>
+                                <li>✓ 30 days of support</li>
+                                <li>✓ Video training library access</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-tier-card highlighted p-8 rounded-xl flex flex-col relative fade-in" style="animation-delay: 0.4s;">
+                             <span class="popular-badge absolute top-0 -mt-3 left-1/2 transform -translate-x-1/2 bg-white text-blue-600 text-xs font-bold px-3 py-1 rounded-full shadow-lg">MOST POPULAR</span>
+                            <h3 class="text-2xl font-semibold mb-2 text-primary mt-4">Growth Suite</h3>
+                            <p class="text-gray-300 text-sm mb-4 floating-text-light">Ideal for established businesses ready to significantly reduce manual workload.</p>
+                            <p class="text-4xl font-bold my-4 text-white floating-text">From $997</p>
+                             <a href="#floating-cta-bar" onclick="document.getElementById('open-contact-modal-button').click(); return false;" class="fancy-button block w-full mt-auto mb-6">Book a Free Consultation</a>
+                            <h4 class="text-lg font-semibold mb-2 text-gray-200 floating-text">WHAT'S INCLUDED</h4>
+                            <ul class="text-gray-400 space-y-1 text-sm text-left floating-text-light">
+                                <li>✓ 3 integrated automation systems</li>
+                                <li>✓ Custom workflow design</li>
+                                <li>✓ 90 days of support</li>
+                                <li>✓ Quarterly optimization review</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-tier-card p-8 rounded-xl flex flex-col fade-in" style="animation-delay: 0.5s;">
+                            <h3 class="text-2xl font-semibold mb-2 text-primary">Enterprise Automation</h3>
+                            <p class="text-gray-300 text-sm mb-4 floating-text-light">Comprehensive automation strategy for businesses with complex needs.</p>
+                            <p class="text-4xl font-bold my-4 text-white floating-text">Custom Quote</p>
+                             <a href="#floating-cta-bar" onclick="document.getElementById('open-contact-modal-button').click(); return false;" class="fancy-button block w-full mt-auto mb-6">Book a Free Consultation</a>
+                            <h4 class="text-lg font-semibold mb-2 text-gray-200 floating-text">WHAT'S INCLUDED</h4>
+                            <ul class="text-gray-400 space-y-1 text-sm text-left floating-text-light">
+                                <li>✓ Full business process automation</li>
+                                <li>✓ Custom integration development</li>
+                                <li>✓ Dedicated support manager</li>
+                                <li>✓ Monthly strategy sessions</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </section>
+
 
             <section id="about-me" class="py-20">
                 <div class="container mx-auto px-6 text-center">
                     <h2 class="text-4xl font-bold mb-12 fade-in floating-text">About Me</h2>
                     <div class="flex flex-col md:flex-row items-center justify-center gap-10 max-w-4xl mx-auto">
                         <div class="md:w-1/3 flex justify-center fade-in" style="animation-delay: 0.1s;">
-                            <img src="Profile.png" alt="A portrait of the business owner" class="about-me-image" onerror="this.onerror=null;this.src='https://placehold.co/200x200/333333/FFFFFF?text=Image+Error';">
+                            <img src="Images/profile.png" alt="A portrait of the business owner" class="about-me-image" onerror="this.onerror=null;this.src='https://placehold.co/200x200/333333/FFFFFF?text=Image+Error';">
                         </div>
                         <div class="md:w-2/3 text-left md:text-left space-y-4">
                             <p class="text-lg text-gray-200 floating-text-light fade-in" style="animation-delay: 0.2s;">
@@ -491,24 +757,39 @@
     </div> 
     
     <div id="floating-cta-bar">
-        <button id="open-contact-modal-button" class="fancy-button block w-full">Book an Appointment</button>
+        <button id="open-contact-modal-button" class="chat-widget-icon" aria-label="Open contact form">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3.543-3.091a9.117 9.117 0 0 1-1.255 0c-5.142 0-9.359-4.217-9.359-9.359s4.217-9.359 9.359-9.359c1.753 0 3.396.492 4.788 1.362Z" />
+            </svg>
+        </button>
     </div>
 
     <div id="contact-modal-overlay" class="modal-overlay">
         <div class="modal-content">
             <button id="close-contact-modal-button" class="modal-close-button" aria-label="Close modal">&times;</button>
-            <h2 class="text-2xl font-bold mb-6 floating-text text-primary">Let’s Get You Set Up</h2>
-            <p class="text-lg text-gray-300 mb-8 floating-text-light">
-                You're just one click away from freeing up your calendar and your cash flow.
+            <h2 class="text-2xl font-bold mb-6 floating-text text-primary">Let's Connect!</h2>
+            <p class="text-md text-gray-300 mb-6 floating-text-light">
+                Tell me a bit about your business and what challenges you're facing.
             </p>
-            <div class="flex flex-col space-y-4">
-                <a href="tel:218-382-1153" class="fancy-button cta-button block">
-                    Call or Text Me
-                </a>
-                <a href="mailto:cwillaby@willabysolutions.com" class="fancy-button cta-button block">
-                    Email Me
-                </a>
-            </div>
+            <form id="contact-form">
+                <div class="mb-4">
+                    <label for="name" class="form-label">Your Name:</label>
+                    <input type="text" id="name" name="name" class="form-input" required>
+                </div>
+                <div class="mb-4">
+                    <label for="businessName" class="form-label">Business Name:</label>
+                    <input type="text" id="businessName" name="businessName" class="form-input">
+                </div>
+                <div class="mb-4">
+                    <label for="phone" class="form-label">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" class="form-input">
+                </div>
+                <div class="mb-6">
+                    <label for="problems" class="form-label">Describe the problems you are facing:</label>
+                    <textarea id="problems" name="problems" rows="4" class="form-textarea" required></textarea>
+                </div>
+                <button type="submit" class="fancy-button block w-full cta-button">Send Message</button>
+            </form>
         </div>
     </div>
 
@@ -582,8 +863,8 @@
             const openModalButton = document.getElementById('open-contact-modal-button');
             const closeModalButton = document.getElementById('close-contact-modal-button');
             const modalOverlay = document.getElementById('contact-modal-overlay');
-            const ctaButtonsInModal = modalOverlay.querySelectorAll('.cta-button');
-
+            const contactForm = document.getElementById('contact-form');
+            
             function fireConfetti() {
                 if (typeof confetti !== 'function') {
                     console.error("Confetti function not loaded");
@@ -634,15 +915,82 @@
                 });
             }
             
-            ctaButtonsInModal.forEach(button => {
-                button.addEventListener('click', (event) => {
-                    fireConfetti(); 
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    event.preventDefault(); 
+                    console.log('Form submitted!');
+                    console.log('Name:', document.getElementById('name').value);
+                    console.log('Business Name:', document.getElementById('businessName').value);
+                    console.log('Phone:', document.getElementById('phone').value);
+                    console.log('Problems:', document.getElementById('problems').value);
+                    
+                    alert('Message sent! (This is a placeholder - connect to backend)'); 
+                    contactForm.reset();
+                    hideModal(); 
                 });
-            });
+            }
+
+            // --- Stacking Carousel Logic ---
+            const carousel = document.querySelector('.carousel-container');
+            if (carousel) {
+                const slides = carousel.querySelectorAll('.carousel-slide');
+                const prevButton = carousel.querySelector('.carousel-button.prev');
+                const nextButton = carousel.querySelector('.carousel-button.next');
+                let activeSlideIndex = 0;
+                const visibleOffset = 2; // How many slides to show partially on each side
+
+                function updateCarousel() {
+                    slides.forEach((slide, i) => {
+                        slide.classList.remove('active', 'prev-1', 'next-1', 'prev-2', 'next-2', 'hide-far');
+                        
+                        const offset = i - activeSlideIndex;
+
+                        if (offset === 0) {
+                            slide.classList.add('active');
+                        } else if (offset === 1) {
+                            slide.classList.add('next-1');
+                        } else if (offset === -1) {
+                            slide.classList.add('prev-1');
+                        } else if (offset === 2) {
+                            slide.classList.add('next-2');
+                        } else if (offset === -2) {
+                            slide.classList.add('prev-2');
+                        } else {
+                            slide.classList.add('hide-far');
+                        }
+                        // Ensure correct z-index for stacking
+                        slide.style.zIndex = slides.length - Math.abs(offset);
+                    });
+                }
+
+                slides.forEach((slide, i) => {
+                    slide.addEventListener('click', () => {
+                        if (i !== activeSlideIndex) {
+                            activeSlideIndex = i;
+                            updateCarousel();
+                        }
+                    });
+                });
+
+                if (prevButton) {
+                    prevButton.addEventListener('click', () => {
+                        activeSlideIndex = (activeSlideIndex - 1 + slides.length) % slides.length;
+                        updateCarousel();
+                    });
+                }
+
+                if (nextButton) {
+                    nextButton.addEventListener('click', () => {
+                        activeSlideIndex = (activeSlideIndex + 1) % slides.length;
+                        updateCarousel();
+                    });
+                }
+                if (slides.length > 0) updateCarousel(); // Initial setup
+            }
+            // --- End Stacking Carousel Logic ---
 
         });
     </script>
 
 </body>
 </html>
-
