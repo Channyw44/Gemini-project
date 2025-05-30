@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Willaby Solutions - Save Time, Save Money, Run Smarter</title>
     <meta name="description" content="Willaby Solutions helps small business owners automate tasks, reclaim hours, reduce overhead, and stop leaving money on the table.">
-    <meta name="keywords" content="AI solutions, business automation, small business, save time, reduce overhead, Willaby Solutions, about Willaby, pricing, slideshow, carousel">
+    <meta name="keywords" content="AI solutions, business automation, small business, save time, reduce overhead, Willaby Solutions, about Willaby, pricing">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -369,81 +369,8 @@
             color: #111827; 
         }
 
-        /* Carousel Styles - Updated for Stacking/Floating Effect */
-        .carousel-container {
-            position: relative;
-            max-width: 1000px; /* Increased max-width */
-            margin: 3rem auto; 
-            height: 800px; /* Increased height */
-            perspective: 1500px; 
-        }
-        .carousel-slide {
-            position: absolute;
-            width: 50%; /* Adjusted width for larger slides */
-            top: 50%;
-            left: 50%;
-            background-color: transparent; /* Slide background is transparent */
-            border-radius: 0.75rem; 
-            padding: 0; 
-            text-align: center;
-            transition: transform 0.7s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.6s ease-in-out, z-index 0s 0.35s;
-            cursor: pointer;
-            opacity: 0; 
-            z-index: 1;
-            will-change: transform, opacity; 
-        }
-        .carousel-slide img {
-            width: 100%; 
-            height: auto; 
-            max-height: 600px; /* Significantly increased max height for images */
-            object-fit: contain; 
-            border-radius: 0.75rem; /* Rounded corners for images */
-            box-shadow: 0 8px 25px rgba(0,0,0,0.35); /* Slightly stronger shadow for images */
-        }
-        /* Slide content (titles/descriptions) are removed, so .slide-content div is not needed */
-
-        .carousel-slide.active {
-            transform: translate(-50%, -50%) scale(1) rotateY(0deg);
-            opacity: 1;
-            z-index: 10;
-            cursor: default;
-        }
-        /* Adjust transform values for larger slides and wider spread */
-        .carousel-slide.prev-1 { 
-            transform: translateX(-85%) translateY(-50%) scale(0.8) rotateY(40deg);
-            opacity: 0.6;
-            z-index: 9;
-        }
-        .carousel-slide.prev-1:hover {
-            transform: translateX(-85%) translateY(-50%) scale(0.85) rotateY(35deg);
-        }
-        .carousel-slide.next-1 { 
-            transform: translateX(-15%) translateY(-50%) scale(0.8) rotateY(-40deg);
-            opacity: 0.6;
-            z-index: 9;
-        }
-         .carousel-slide.next-1:hover {
-            transform: translateX(-15%) translateY(-50%) scale(0.85) rotateY(-35deg);
-        }
-        .carousel-slide.prev-2 {
-            transform: translateX(-115%) translateY(-45%) scale(0.65) rotateY(50deg);
-            opacity: 0.3;
-            z-index: 8;
-        }
-        .carousel-slide.next-2 {
-            transform: translateX(15%) translateY(-45%) scale(0.65) rotateY(-50deg);
-            opacity: 0.3;
-            z-index: 8;
-        }
-        .carousel-slide.hide-far {
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(0.4) rotateY(0deg); 
-            z-index: 1;
-        }
-        .carousel-controls { 
-            display: none; 
-        }
-        .carousel-dots { display: none; }
+        /* Carousel Styles - Removed */
+        /* .carousel-container, .carousel-slide, .carousel-controls, .carousel-button, .carousel-dots no longer needed */
 
 
     </style>
@@ -502,7 +429,6 @@
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
                 <div class="hidden md:flex space-x-6 floating-text">
-                    <a href="#carousel-section" class="hover:text-primary transition duration-300">Showcase</a> 
                     <a href="#services" class="hover:text-primary transition duration-300">What We Help With</a>
                     <a href="#why-matters" class="hover:text-primary transition duration-300">Why It Matters</a>
                     <a href="#custom-pricing-section" class="hover:text-primary transition duration-300">Pricing</a> 
@@ -511,7 +437,6 @@
                 </div>
             </nav>
             <div id="mobile-menu" class="hidden md:hidden bg-dark-card absolute w-full shadow-lg">
-                <a href="#carousel-section" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">Showcase</a> 
                 <a href="#services" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">What We Help With</a>
                 <a href="#why-matters" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">Why It Matters</a>
                 <a href="#custom-pricing-section" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">Pricing</a> 
@@ -536,44 +461,6 @@
                         We help small business owners like you reclaim your hours, reduce overhead, and stop leaving money on the table—by automating everyday tasks so your business runs like clockwork (even when you’re off the clock).
                     </p>
                 </div>
-            </section>
-
-            <section id="carousel-section" class="py-20">
-                <div class="container mx-auto px-6 text-center">
-                    <h2 class="text-4xl font-bold mb-12 fade-in floating-text">Our Showcase</h2>
-                    <div class="carousel-container fade-in" style="animation-delay: 0.1s;">
-                        <div class="carousel-slide">
-                            <img src="1_Revolutionizing-SMBs-with-Al-Automation.png" alt="Revolutionizing SMBs with AI Automation" onerror="this.onerror=null;this.src='https://placehold.co/800x600/1a202c/e2e8f0?text=Image+Error';">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="2_The-SMB-Automation-Landscape-in-2025.png" alt="The SMB Automation Landscape in 2025" onerror="this.onerror=null;this.src='https://placehold.co/800x600/2d3748/e2e8f0?text=Image+Error';">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="3_Key-Business-Challenges-Solved-by-Al-Automation.png" alt="Key Business Challenges Solved by AI Automation" onerror="this.onerror=null;this.src='https://placehold.co/800x600/4a5568/e2e8f0?text=Image+Error';">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="4_Strategic-Implementation-Areas.png" alt="Strategic Implementation Areas for AI" onerror="this.onerror=null;this.src='https://placehold.co/800x600/1a202c/e2e8f0?text=Image+Error';">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="5_Al-Tools-Transforming-SMBs-in-2025.png" alt="AI Tools Transforming SMBs in 2025" onerror="this.onerror=null;this.src='https://placehold.co/800x600/2d3748/e2e8f0?text=Image+Error';">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="6_Customer-Support-Transformation.png" alt="Customer Support Transformation with AI" onerror="this.onerror=null;this.src='https://placehold.co/800x600/4a5568/e2e8f0?text=Image+Error';">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="7_Marketing-and-Sales-Automation-Benefits.png" alt="Marketing and Sales Automation Benefits" onerror="this.onerror=null;this.src='https://placehold.co/800x600/1a202c/e2e8f0?text=Image+Error';">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="8_Implementation-Roadmap.png" alt="AI Implementation Roadmap" onerror="this.onerror=null;this.src='https://placehold.co/800x600/2d3748/e2e8f0?text=Image+Error';">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="9_Measuring-Success-KPIs-and-ROI.png" alt="Measuring Success KPIs and ROI" onerror="this.onerror=null;this.src='https://placehold.co/800x600/4a5568/e2e8f0?text=Image+Error';">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="10_Next-Steps-Begin-Your-Al-Automation-Journey.png" alt="Next Steps: Begin Your AI Automation Journey" onerror="this.onerror=null;this.src='https://placehold.co/800x600/1a202c/e2e8f0?text=Image+Error';">
-                        </div>
-                    </div>
-                    </div>
             </section>
 
             <section id="services" class="py-20">
@@ -946,6 +833,9 @@
 
         });
     </script>
+
+</body>
+</html>
 
 </body>
 </html>
