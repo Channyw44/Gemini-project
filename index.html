@@ -5,13 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Willaby Solutions - Save Time, Save Money, Run Smarter</title>
     <meta name="description" content="Willaby Solutions helps small business owners automate tasks, reclaim hours, reduce overhead, and stop leaving money on the table.">
-    <meta name="keywords" content="AI solutions, business automation, small business, save time, reduce overhead, Willaby Solutions, about Willaby, pricing, slideshow, carousel">
-    <!-- Updated Favicon Link -->
-    <link rel="icon" href="Willabylogo.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="Willabylogo.ico" type="image/x-icon">
-
+    <meta name="keywords" content="AI solutions, business automation, small business, save time, reduce overhead, Willaby Solutions, about Willaby, pricing, slideshow, carousel, FAQ">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Canvas Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -332,14 +327,14 @@
             font-family: 'Playfair Display', serif; 
             font-weight: 700; 
             animation: elegantPulse 3s infinite ease-in-out;
-            display: flex; /* For aligning logo and text */
-            align-items: center; /* Vertical alignment */
+            display: flex; 
+            align-items: center; 
         }
         .brand-logo {
-            height: 32px; /* Adjust size as needed */
+            height: 32px; 
             width: auto;
-            margin-right: 0.75rem; /* Space between logo and text (Tailwind mr-3) */
-            filter: brightness(0) invert(1); /* Makes a dark logo white */
+            margin-right: 0.75rem; 
+            filter: brightness(0) invert(1); 
         }
 
         @keyframes elegantPulse {
@@ -362,7 +357,7 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        /* New Pricing Section Styling */
+        /* New Pricing Section Styling - Updated for Transparency */
         #custom-pricing-section {
             background-color: transparent; 
             border-radius: 0; 
@@ -392,6 +387,54 @@
 
         /* Carousel Styles - Removed */
         /* .carousel-container, .carousel-slide, .carousel-controls, .carousel-button, .carousel-dots no longer needed */
+
+        /* FAQ Accordion Styles */
+        .faq-item {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.75rem 0;
+        }
+        .faq-question h3 {
+            margin: 0;
+            font-size: 1.25rem; /* text-xl */
+        }
+        .faq-indicator {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            color: #ffffff; /* Primary color (white) */
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            padding-left: 1rem; /* Indent answer slightly */
+            padding-right: 1rem;
+        }
+        .faq-answer p {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        .faq-item.active .faq-answer {
+            /* max-height will be set by JS */
+            padding-top: 0.5rem;
+            padding-bottom: 0.75rem;
+        }
+        .faq-item.active .faq-indicator {
+            transform: rotate(45deg);
+        }
 
 
     </style>
@@ -445,7 +488,6 @@
     <div class="content-wrapper">
         <header id="main-header" class="sticky top-0 z-50 w-full">
             <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-                <!-- Updated Brand with Logo -->
                 <a href="#" class="text-2xl text-primary elegant-brand">
                     <img src="Willabylogo.png" alt="Willaby Solutions Logo" class="brand-logo"> 
                     Willaby Solutions
@@ -457,7 +499,7 @@
                     <a href="#services" class="hover:text-primary transition duration-300">What We Help With</a>
                     <a href="#why-matters" class="hover:text-primary transition duration-300">Why It Matters</a>
                     <a href="#custom-pricing-section" class="hover:text-primary transition duration-300">Pricing</a> 
-                    <a href="#about-me" class="hover:text-primary transition duration-300">About Me</a> 
+                    <a href="#faq" class="hover:text-primary transition duration-300">FAQ</a> <a href="#about-me" class="hover:text-primary transition duration-300">About Me</a> 
                     <a href="https://sites.google.com/view/willabysolutions/blog" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition duration-300">Blog</a> 
                 </div>
             </nav>
@@ -465,7 +507,7 @@
                 <a href="#services" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">What We Help With</a>
                 <a href="#why-matters" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">Why It Matters</a>
                 <a href="#custom-pricing-section" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">Pricing</a> 
-                <a href="#about-me" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">About Me</a> 
+                <a href="#faq" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">FAQ</a> <a href="#about-me" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">About Me</a> 
                 <a href="https://sites.google.com/view/willabysolutions/blog" target="_blank" rel="noopener noreferrer" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">Blog</a> 
             </div>
         </header>
@@ -487,8 +529,6 @@
                     </p>
                 </div>
             </section>
-
-            <!-- Carousel Section HTML Removed -->
 
             <section id="services" class="py-20">
                  <div class="container mx-auto px-6 text-center">
@@ -604,6 +644,103 @@
                 </div>
             </section>
 
+            <section id="faq" class="py-20">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-4xl font-bold mb-12 fade-in floating-text">Frequently Asked Questions <br class="sm:hidden">About AI Automation for SMBs</h2>
+                    <div class="max-w-3xl mx-auto text-left">
+                        <div class="faq-item fade-in" style="animation-delay: 0.1s;">
+                            <button class="faq-question w-full">
+                                <h3 class="floating-text">Q: What is AI automation?</h3>
+                                <span class="faq-indicator floating-text">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p class="text-gray-300 floating-text-light">AI automation uses artificial intelligence to automate tasks that are typically done by humans. This can include things like data entry, customer service, marketing, and more. The goal is to improve efficiency, reduce costs, and free up employees to focus on more strategic work.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item fade-in" style="animation-delay: 0.2s;">
+                            <button class="faq-question w-full">
+                                <h3 class="floating-text">Q: How can AI automation benefit my SMB?</h3>
+                                <span class="faq-indicator floating-text">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p class="text-gray-300 floating-text-light">AI automation can help SMBs in several ways, including reducing labor costs, improving customer service, streamlining operations, and providing data-driven insights. It allows you to do more with less, compete more effectively, and focus on growth.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item fade-in" style="animation-delay: 0.3s;">
+                            <button class="faq-question w-full">
+                                <h3 class="floating-text">Q: What types of tasks can be automated with AI?</h3>
+                                <span class="faq-indicator floating-text">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p class="text-gray-300 floating-text-light">Many tasks can be automated, including customer service (chatbots), marketing (email campaigns, social media), sales (lead scoring), operations (inventory management), and finance (bookkeeping). The possibilities are vast and growing.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item fade-in" style="animation-delay: 0.4s;">
+                            <button class="faq-question w-full">
+                                <h3 class="floating-text">Q: Is AI automation expensive to implement?</h3>
+                                <span class="faq-indicator floating-text">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p class="text-gray-300 floating-text-light">The cost of AI automation varies depending on the specific solutions and your business needs. However, many affordable options are available for SMBs, and the long-term cost savings and efficiency gains often outweigh the initial investment.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item fade-in" style="animation-delay: 0.5s;">
+                            <button class="faq-question w-full">
+                                <h3 class="floating-text">Q: Do I need a dedicated IT team to implement AI automation?</h3>
+                                <span class="faq-indicator floating-text">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p class="text-gray-300 floating-text-light">No, many AI automation solutions are designed to be user-friendly and require minimal technical expertise. Some providers offer support and training to help you get started.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item fade-in" style="animation-delay: 0.6s;">
+                             <button class="faq-question w-full">
+                                <h3 class="floating-text">Q: How do I choose the right AI automation solutions for my business?</h3>
+                                <span class="faq-indicator floating-text">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p class="text-gray-300 floating-text-light">Start by identifying the areas where automation can have the biggest impact. Research different solutions, read reviews, and consider consulting with an AI automation expert to find the best fit for your needs.</p>
+                            </div>
+                        </div>
+                         <div class="faq-item fade-in" style="animation-delay: 0.7s;">
+                            <button class="faq-question w-full">
+                                <h3 class="floating-text">Q: Will AI automation replace my employees?</h3>
+                                <span class="faq-indicator floating-text">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p class="text-gray-300 floating-text-light">The goal of AI automation is not to replace employees but to augment their capabilities and free them from repetitive tasks. This allows employees to focus on more creative, strategic, and customer-facing activities.</p>
+                            </div>
+                        </div>
+                         <div class="faq-item fade-in" style="animation-delay: 0.8s;">
+                            <button class="faq-question w-full">
+                                <h3 class="floating-text">Q: How secure is AI automation?</h3>
+                                <span class="faq-indicator floating-text">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p class="text-gray-300 floating-text-light">Reputable AI automation providers prioritize data security and privacy. Look for solutions that comply with industry standards and regulations, and ensure that your data is protected.</p>
+                            </div>
+                        </div>
+                         <div class="faq-item fade-in" style="animation-delay: 0.9s;">
+                            <button class="faq-question w-full">
+                                <h3 class="floating-text">Q: Can AI automation improve customer satisfaction?</h3>
+                                <span class="faq-indicator floating-text">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p class="text-gray-300 floating-text-light">Yes, AI-powered chatbots can provide 24/7 customer support, personalized recommendations, and quick answers to common questions, leading to improved customer satisfaction.</p>
+                            </div>
+                        </div>
+                         <div class="faq-item fade-in" style="animation-delay: 1s;">
+                            <button class="faq-question w-full">
+                                <h3 class="floating-text">Q: How do I get started with AI automation?</h3>
+                                <span class="faq-indicator floating-text">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p class="text-gray-300 floating-text-light">Start by assessing your business needs and identifying areas where automation can make a difference. Research available solutions, consult with experts, and begin with a pilot project to test the waters.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <section id="about-me" class="py-20">
                 <div class="container mx-auto px-6 text-center">
@@ -813,50 +950,28 @@
                 });
             }
 
-            // --- Stacking Carousel Logic ---
-            const carousel = document.querySelector('.carousel-container');
-            if (carousel) {
-                const slides = carousel.querySelectorAll('.carousel-slide');
-                // const prevButton = carousel.querySelector('.carousel-button.prev'); // Arrows removed
-                // const nextButton = carousel.querySelector('.carousel-button.next'); // Arrows removed
-                let activeSlideIndex = 0;
-                
-                function updateCarousel() {
-                    slides.forEach((slide, i) => {
-                        slide.classList.remove('active', 'prev-1', 'next-1', 'prev-2', 'next-2', 'hide-far');
-                        
-                        const offset = i - activeSlideIndex;
+            // --- Stacking Carousel Logic --- Removed ---
+            
+            // --- FAQ Accordion Logic ---
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const questionButton = item.querySelector('.faq-question');
+                const answerDiv = item.querySelector('.faq-answer');
+                const indicator = item.querySelector('.faq-indicator');
 
-                        if (offset === 0) {
-                            slide.classList.add('active');
-                        } else if (offset === 1 || (activeSlideIndex === slides.length - 1 && i === 0) ) { // Next slide or wrap around
-                            slide.classList.add('next-1');
-                        } else if (offset === -1 || (activeSlideIndex === 0 && i === slides.length - 1) ) { // Previous slide or wrap around
-                            slide.classList.add('prev-1');
-                        } else if (offset === 2 || (activeSlideIndex === slides.length - 2 && i === 0) || (activeSlideIndex === slides.length - 1 && i === 1) ) {
-                            slide.classList.add('next-2');
-                        } else if (offset === -2 || (activeSlideIndex === 0 && i === slides.length - 2) || (activeSlideIndex === 1 && i === slides.length - 1) ) {
-                            slide.classList.add('prev-2');
+                if (questionButton && answerDiv && indicator) {
+                    questionButton.addEventListener('click', () => {
+                        const isActive = item.classList.toggle('active');
+                        if (isActive) {
+                            answerDiv.style.maxHeight = answerDiv.scrollHeight + "px";
+                            indicator.textContent = "-";
                         } else {
-                            slide.classList.add('hide-far');
+                            answerDiv.style.maxHeight = "0";
+                            indicator.textContent = "+";
                         }
-                        slide.style.zIndex = slides.length - Math.abs(offset);
                     });
                 }
-
-
-                slides.forEach((slide, i) => {
-                    slide.addEventListener('click', () => {
-                        if (i !== activeSlideIndex) {
-                            activeSlideIndex = i;
-                            updateCarousel();
-                        }
-                    });
-                });
-
-                if (slides.length > 0) updateCarousel(); // Initial setup
-            }
-            // --- End Stacking Carousel Logic ---
+            });
 
         });
     </script>
