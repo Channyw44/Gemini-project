@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Willaby Solutions - Save Time, Save Money, Run Smarter</title>
     <meta name="description" content="Willaby Solutions helps small business owners automate tasks, reclaim hours, reduce overhead, and stop leaving money on the table.">
-    <meta name="keywords" content="AI solutions, business automation, small business, save time, reduce overhead, Willaby Solutions, about Willaby, pricing, slideshow, carousel, FAQ, Privacy Policy, Terms of Service">
+    <meta name="keywords" content="AI solutions, business automation, small business, save time, reduce overhead, Willaby Solutions, about Willaby, pricing, FAQ, Privacy Policy, Terms of Service, booking">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Canvas Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
     <link rel="icon" href="Willabylogo.ico" type="image/x-icon">
     <link rel="shortcut icon" href="Willabylogo.ico" type="image/x-icon">
@@ -353,6 +354,8 @@
         .time-slots-container {
             margin-top: 1.5rem;
             text-align: center;
+            max-height: 150px; /* Limit height and make scrollable if many slots */
+            overflow-y: auto;
         }
         .time-slot {
             display: inline-block;
@@ -371,6 +374,17 @@
             background-color: #6366f1;
             color: white;
         }
+        .availability-message {
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+        }
+        .availability-message.error {
+            color: #f87171; /* Tailwind red-400 */
+        }
+        .availability-message.success {
+            color: #34d399; /* Tailwind green-400 */
+        }
+
 
         /* Form Styles */
         .form-label {
@@ -577,6 +591,7 @@
                 <button id="mobile-menu-button" class="md:hidden text-dark-text hover:text-primary focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
+                <!-- Navigation Links Updated -->
                 <div class="hidden md:flex space-x-6 floating-text">
                     <a href="#custom-pricing-section" class="hover:text-primary transition duration-300">Pricing</a> 
                     <a href="#faq" class="hover:text-primary transition duration-300">FAQ</a> 
@@ -585,7 +600,8 @@
                 </div>
             </nav>
             <div id="mobile-menu" class="hidden md:hidden bg-dark-card absolute w-full shadow-lg">
-                 <a href="#custom-pricing-section" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">Pricing</a> 
+                 <!-- Navigation Links Updated -->
+                <a href="#custom-pricing-section" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">Pricing</a> 
                 <a href="#faq" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">FAQ</a> 
                 <a href="#about-me" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">About Me</a> 
                 <a href="https://sites.google.com/view/willabysolutions/blog" target="_blank" rel="noopener noreferrer" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">Blog</a> 
@@ -609,6 +625,8 @@
                     </p>
                 </div>
             </section>
+
+            <!-- Carousel Section HTML Removed -->
 
             <section id="services" class="py-20">
                  <div class="container mx-auto px-6 text-center">
@@ -873,29 +891,56 @@
     <div id="contact-modal-overlay" class="modal-overlay">
         <div class="modal-content">
             <button id="close-contact-modal-button" class="modal-close-button" aria-label="Close modal">&times;</button>
-            <h2 class="text-2xl font-bold mb-6 floating-text text-primary">Let's Connect!</h2>
-            <p class="text-md text-gray-300 mb-6 floating-text-light">
-                Tell me a bit about your business and what challenges you're facing.
-            </p>
-            <form id="contact-form">
-                <div class="mb-4">
-                    <label for="name" class="form-label">Your Name:</label>
-                    <input type="text" id="name" name="name" class="form-input" required>
+            
+            <div id="calendar-view-container">
+                <h2 class="text-2xl font-bold mb-4 floating-text text-primary">Book an Appointment</h2>
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button id="prev-month-button">&lt;</button>
+                        <h3 id="month-year-display" class="text-xl font-semibold floating-text">June 2025</h3>
+                        <button id="next-month-button">&gt;</button>
+                    </div>
+                    <div class="calendar-grid">
+                        <div class="calendar-day-name">Sun</div>
+                        <div class="calendar-day-name">Mon</div>
+                        <div class="calendar-day-name">Tue</div>
+                        <div class="calendar-day-name">Wed</div>
+                        <div class="calendar-day-name">Thu</div>
+                        <div class="calendar-day-name">Fri</div>
+                        <div class="calendar-day-name">Sat</div>
+                        </div>
                 </div>
-                <div class="mb-4">
-                    <label for="businessName" class="form-label">Business Name:</label>
-                    <input type="text" id="businessName" name="businessName" class="form-input">
-                </div>
-                <div class="mb-4">
-                    <label for="phone" class="form-label">Phone Number:</label>
-                    <input type="tel" id="phone" name="phone" class="form-input">
-                </div>
-                <div class="mb-6">
-                    <label for="problems" class="form-label">Describe the problems you are facing:</label>
-                    <textarea id="problems" name="problems" rows="4" class="form-textarea" required></textarea>
-                </div>
-                <button type="submit" class="fancy-button block w-full cta-button">Send Message</button>
-            </form>
+                <div id="time-slots-container" class="time-slots-container">
+                    </div>
+                <div id="availability-status" class="availability-message mt-4"></div>
+            </div>
+
+            <div id="contact-form-container">
+                <h2 class="text-2xl font-bold mb-6 floating-text text-primary">Confirm Your Details</h2>
+                <form id="contact-form">
+                    <div class="mb-4">
+                        <label for="selected-appointment" class="form-label">Selected Appointment:</label>
+                        <input type="text" id="selected-appointment" name="selectedAppointment" class="form-input bg-gray-600" readonly>
+                    </div>
+                    <div class="mb-4">
+                        <label for="name" class="form-label">Your Name:</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="businessName" class="form-label">Business Name:</label>
+                        <input type="text" id="businessName" name="businessName" class="form-input">
+                    </div>
+                    <div class="mb-4">
+                        <label for="phone" class="form-label">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" class="form-input">
+                    </div>
+                    <div class="mb-6">
+                        <label for="problems" class="form-label">Describe the problems you are facing:</label>
+                        <textarea id="problems" name="problems" rows="3" class="form-textarea" required></textarea>
+                    </div>
+                    <button type="submit" class="fancy-button block w-full cta-button">Send Request</button>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -960,51 +1005,61 @@
             // Floating CTA Bar Logic
             const floatingCtaBar = document.getElementById('floating-cta-bar');
             if (floatingCtaBar) {
+                console.log("Attempting to show CTA bar after 5 seconds..."); 
                 setTimeout(() => {
+                    console.log("CTA Bar timeout reached, adding 'visible' class."); 
                     floatingCtaBar.classList.add('visible');
-                }, 5000); // 5000 milliseconds = 5 seconds
+                }, 5000); 
+            } else {
+                console.error("Floating CTA bar element not found!");
             }
 
             // Modal Logic
             const openModalButton = document.getElementById('open-contact-modal-button');
             const closeModalButton = document.getElementById('close-contact-modal-button');
             const modalOverlay = document.getElementById('contact-modal-overlay');
+            const contactFormContainer = document.getElementById('contact-form-container');
+            const calendarViewContainer = document.getElementById('calendar-view-container');
             const contactForm = document.getElementById('contact-form');
+            const selectedAppointmentInput = document.getElementById('selected-appointment');
+            const availabilityStatusDiv = document.getElementById('availability-status');
+
+
+            let currentMonthDate = new Date(); 
+            let selectedDate = null;
+            let selectedTime = null;
             
             function fireConfetti() {
-                if (typeof confetti !== 'function') {
-                    console.error("Confetti function not loaded");
-                    return;
-                }
+                // ... (confetti logic) ...
+                 if (typeof confetti !== 'function') { console.error("Confetti function not loaded"); return; }
                 var duration = 1.5 * 1000; 
                 var animationEnd = Date.now() + duration;
                 var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 2001 }; 
-
-                function randomInRange(min, max) {
-                    return Math.random() * (max - min) + min;
-                }
-
+                function randomInRange(min, max) { return Math.random() * (max - min) + min; }
                 var interval = setInterval(function() {
                     var timeLeft = animationEnd - Date.now();
-
-                    if (timeLeft <= 0) {
-                        return clearInterval(interval);
-                    }
-
+                    if (timeLeft <= 0) { return clearInterval(interval); }
                     var particleCount = 50 * (timeLeft / duration);
                     confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
                     confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
                 }, 250);
             }
 
-
             function showModal() {
                 fireConfetti(); 
-                modalOverlay.classList.add('visible');
+                renderCalendar(currentMonthDate); 
+                if(calendarViewContainer) calendarViewContainer.style.display = 'block';
+                if(contactFormContainer) contactFormContainer.style.display = 'none';
+                if(availabilityStatusDiv) availabilityStatusDiv.textContent = ''; 
+                if(modalOverlay) modalOverlay.classList.add('visible');
             }
 
             function hideModal() {
-                modalOverlay.classList.remove('visible');
+                if(modalOverlay) modalOverlay.classList.remove('visible');
+                selectedDate = null; 
+                selectedTime = null;
+                if(contactForm) contactForm.reset(); 
+                if(selectedAppointmentInput) selectedAppointmentInput.value = ''; 
             }
 
             if (openModalButton) {
@@ -1022,21 +1077,208 @@
             }
             
             if (contactForm) {
-                contactForm.addEventListener('submit', function(event) {
+                contactForm.addEventListener('submit', async function(event) { 
                     event.preventDefault(); 
-                    console.log('Form submitted!');
-                    console.log('Name:', document.getElementById('name').value);
-                    console.log('Business Name:', document.getElementById('businessName').value);
-                    console.log('Phone:', document.getElementById('phone').value);
-                    console.log('Problems:', document.getElementById('problems').value);
                     
-                    alert('Message sent! (This is a placeholder - connect to backend)'); 
-                    contactForm.reset();
-                    hideModal(); 
+                    const formData = {
+                        selectedAppointment: selectedAppointmentInput ? selectedAppointmentInput.value : "Not selected",
+                        name: document.getElementById('name').value,
+                        businessName: document.getElementById('businessName').value,
+                        phone: document.getElementById('phone').value,
+                        problems: document.getElementById('problems').value
+                    };
+                    
+                    const submitButton = contactForm.querySelector('button[type="submit"]');
+                    const originalButtonText = submitButton.textContent;
+                    submitButton.textContent = 'Sending...';
+                    submitButton.disabled = true;
+
+                    try {
+                        // This is the webhook for FINAL form submission
+                        const response = await fetch('https://hook.us1.make.com/f8jhsa1zb219b759xat8h67pd5go55ph', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json', },
+                            body: JSON.stringify(formData),
+                        });
+
+                        if (response.ok) {
+                            alert('Appointment request sent successfully! We will confirm availability.'); 
+                            contactForm.reset();
+                            hideModal(); 
+                        } else {
+                            alert('There was an error sending your request. Please try again.');
+                        }
+                    } catch (error) {
+                        alert('There was an error sending your request. Please check your connection and try again.');
+                    } finally {
+                        submitButton.textContent = originalButtonText;
+                        submitButton.disabled = false;
+                    }
                 });
             }
 
-            // --- Stacking Carousel Logic --- Removed ---
+            // --- Calendar Logic ---
+            const monthYearDisplay = document.getElementById('month-year-display');
+            const calendarGrid = document.querySelector('#contact-modal-overlay .calendar-grid'); 
+            const prevMonthButton = document.getElementById('prev-month-button'); 
+            const nextMonthButton = document.getElementById('next-month-button'); 
+            const timeSlotsContainer = document.getElementById('time-slots-container'); 
+
+            function renderCalendar(date) {
+                 if (!calendarGrid || !monthYearDisplay) { console.error("Calendar elements not found"); return; }
+                calendarGrid.innerHTML = ''; 
+                ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].forEach(dayName => {
+                    const dayNameDiv = document.createElement('div');
+                    dayNameDiv.classList.add('calendar-day-name');
+                    dayNameDiv.textContent = dayName;
+                    calendarGrid.appendChild(dayNameDiv);
+                });
+
+                const year = date.getFullYear();
+                const month = date.getMonth();
+                monthYearDisplay.textContent = `${date.toLocaleString('default', { month: 'long' })} ${year}`;
+
+                const firstDayOfMonth = new Date(year, month, 1).getDay();
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                for (let i = 0; i < firstDayOfMonth; i++) {
+                    const emptyCell = document.createElement('div');
+                    calendarGrid.appendChild(emptyCell);
+                }
+
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dayCell = document.createElement('div');
+                    dayCell.classList.add('calendar-day');
+                    dayCell.textContent = day;
+                    
+                    const today = new Date();
+                    today.setHours(0,0,0,0); 
+                    const cellDate = new Date(year, month, day);
+
+                    if (cellDate < today) {
+                        dayCell.classList.add('other-month'); 
+                    } else {
+                        dayCell.addEventListener('click', () => {
+                            selectDate(dayCell, new Date(year, month, day));
+                        });
+                    }
+                    calendarGrid.appendChild(dayCell);
+                }
+                if(timeSlotsContainer) timeSlotsContainer.innerHTML = ''; 
+                if(availabilityStatusDiv) availabilityStatusDiv.textContent = ''; 
+            }
+
+            function selectDate(dayCell, date) {
+                selectedDate = date;
+                document.querySelectorAll('#contact-modal-overlay .calendar-day.selected').forEach(d => d.classList.remove('selected'));
+                dayCell.classList.add('selected');
+                renderTimeSlots(date);
+            }
+
+            async function checkAvailabilityAndProceed(date, time) {
+                if (!availabilityStatusDiv || !calendarViewContainer || !contactFormContainer || !selectedAppointmentInput) {
+                     console.error("One or more modal elements for availability check not found.");
+                     return;
+                }
+                
+                availabilityStatusDiv.textContent = 'Checking availability...';
+                availabilityStatusDiv.className = 'availability-message floating-text-light'; 
+
+                // ** UPDATED WEBHOOK URL FOR AVAILABILITY CHECK **
+                const availabilityWebhookUrl = 'https://hook.us1.make.com/f8jhsa1zb219b759xat8h67pd5go55ph'; 
+                
+                try {
+                    const response = await fetch(availabilityWebhookUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ 
+                            action: 'checkAvailability', 
+                            date: date.toISOString().split('T')[0], 
+                            time: time 
+                        })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`Webhook responded with ${response.status}`);
+                    }
+
+                    const result = await response.json(); 
+
+                    if (result.status === "available") {
+                        selectedTime = time;
+                        const formattedDate = date.toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
+                        selectedAppointmentInput.value = `${formattedDate} at ${selectedTime}`;
+                        calendarViewContainer.style.display = 'none';
+                        contactFormContainer.style.display = 'block';
+                        document.getElementById('name').focus();
+                        availabilityStatusDiv.textContent = '';
+                    } else {
+                        availabilityStatusDiv.textContent = result.message || 'Sorry, that time is unavailable. Please choose another.';
+                        availabilityStatusDiv.classList.add('error');
+                        selectedTime = null; 
+                        document.querySelectorAll('#contact-modal-overlay .time-slot.selected').forEach(ts => ts.classList.remove('selected'));
+                    }
+                } catch (error) {
+                    console.error('Error checking availability:', error);
+                    availabilityStatusDiv.textContent = 'Error checking availability. Please try again.';
+                    availabilityStatusDiv.classList.add('error');
+                    selectedTime = null;
+                }
+            }
+
+
+            function renderTimeSlots(date) {
+                 if (!timeSlotsContainer) return;
+                timeSlotsContainer.innerHTML = ''; 
+                
+                const availableTimes = ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM", "04:00 PM"];
+                
+                const today = new Date();
+                const isToday = date.toDateString() === today.toDateString();
+                const currentHour = today.getHours();
+                
+                availableTimes.forEach(time => {
+                    const timeSlotButton = document.createElement('button');
+                    timeSlotButton.classList.add('time-slot');
+                    timeSlotButton.textContent = time;
+
+                    if (isToday) {
+                        const slotHour = parseInt(time.split(':')[0]);
+                        const isPM = time.includes('PM');
+                        let slotHour24 = slotHour;
+                        if (isPM && slotHour !== 12) slotHour24 += 12;
+                        if (!isPM && slotHour === 12) slotHour24 = 0; 
+
+                        if (slotHour24 < currentHour) {
+                            timeSlotButton.disabled = true;
+                            timeSlotButton.style.opacity = '0.5';
+                            timeSlotButton.style.cursor = 'not-allowed';
+                        }
+                    }
+
+                    if (!timeSlotButton.disabled) {
+                        timeSlotButton.addEventListener('click', () => {
+                            document.querySelectorAll('#contact-modal-overlay .time-slot.selected').forEach(ts => ts.classList.remove('selected'));
+                            timeSlotButton.classList.add('selected');
+                            checkAvailabilityAndProceed(selectedDate, time); 
+                        });
+                    }
+                    timeSlotsContainer.appendChild(timeSlotButton);
+                });
+            }
+
+            if(prevMonthButton) {
+                prevMonthButton.addEventListener('click', () => {
+                    currentMonthDate.setMonth(currentMonthDate.getMonth() - 1);
+                    renderCalendar(currentMonthDate);
+                });
+            }
+            if(nextMonthButton) {
+                nextMonthButton.addEventListener('click', () => {
+                    currentMonthDate.setMonth(currentMonthDate.getMonth() + 1);
+                    renderCalendar(currentMonthDate);
+                });
+            }
             
             // --- FAQ Accordion Logic ---
             const faqItems = document.querySelectorAll('.faq-item');
