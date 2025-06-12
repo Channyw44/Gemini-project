@@ -9,6 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Canvas Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <!-- Favicon links to the correct file -->
     <link rel="icon" href="Willabylogo.ico" type="image/x-icon">
     <link rel="shortcut icon" href="Willabylogo.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -245,7 +246,7 @@
             width: 30px; 
             height: 30px;
         }
-      
+       
         /* --- Modal Styles --- */
         .modal-overlay {
             position: fixed;
@@ -298,7 +299,7 @@
         .modal-close-button:hover {
             color: #e5e7eb; 
         }
-        
+       
         /* Calendar Styles */
         .calendar-container {
             margin-bottom: 1.5rem;
@@ -386,7 +387,18 @@
         }
 
 
-        /* Form Styles */
+        /* --- UPDATED: Form Styles --- */
+        .form-section-heading {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 700;
+            color: #e5e7eb;
+            text-align: left;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #4b5563;
+            padding-bottom: 0.5rem;
+        }
+
         .form-label {
             display: block;
             margin-bottom: 0.5rem;
@@ -395,27 +407,51 @@
             color: #d1d5db; 
             text-align: left;
         }
-        .form-input, .form-textarea {
+        .form-input, .form-textarea, .form-select {
             width: 100%;
             padding: 0.75rem;
             background-color: #374151; 
             border: 1px solid #4b5563; 
             color: #e5e7eb; 
             border-radius: 0.5rem; 
-            margin-bottom: 1rem;
             transition: border-color 0.2s ease-in-out;
         }
-        .form-input:focus, .form-textarea:focus {
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
             outline: none;
             border-color: #6366f1; 
             box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
         }
         .form-textarea {
-            min-height: 100px;
+            min-height: 80px;
             resize: vertical;
         }
         #contact-form-container {
             display: none; /* Initially hidden */
+        }
+        .form-checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+        .form-checkbox-label {
+            display: flex;
+            align-items: center;
+            font-size: 0.875rem;
+            color: #d1d5db;
+        }
+        .form-checkbox {
+            margin-right: 0.5rem;
+            accent-color: #6366f1;
+        }
+        .other-input-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .other-input {
+           flex-grow: 1;
         }
 
 
@@ -483,7 +519,7 @@
         }
 
         /* Carousel Styles - Removed */
-        
+       
         /* FAQ Accordion Styles */
         .faq-item {
             margin-bottom: 1rem;
@@ -531,7 +567,6 @@
         .faq-item.active .faq-indicator {
             transform: rotate(45deg);
         }
-
 
     </style>
     <script>
@@ -585,13 +620,13 @@
         <header id="main-header" class="sticky top-0 z-50 w-full">
             <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
                 <a href="#" class="text-2xl text-primary elegant-brand">
-                    <img src="Willabylogo.png" alt="Willaby Solutions Logo" class="brand-logo"> 
+                    <!-- Image 'src' uses your file path -->
+                    <img src="Willabylogo.png" alt="Willaby Solutions Logo" class="brand-logo" onerror="this.onerror=null;this.src='https://placehold.co/128x32/111827/FFFFFF?text=Error'"> 
                     Willaby Solutions
                 </a>
                 <button id="mobile-menu-button" class="md:hidden text-dark-text hover:text-primary focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
-                <!-- Navigation Links Updated -->
                 <div class="hidden md:flex space-x-6 floating-text">
                     <a href="#custom-pricing-section" class="hover:text-primary transition duration-300">Pricing</a> 
                     <a href="#faq" class="hover:text-primary transition duration-300">FAQ</a> 
@@ -600,7 +635,6 @@
                 </div>
             </nav>
             <div id="mobile-menu" class="hidden md:hidden bg-dark-card absolute w-full shadow-lg">
-                 <!-- Navigation Links Updated -->
                 <a href="#custom-pricing-section" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">Pricing</a> 
                 <a href="#faq" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">FAQ</a> 
                 <a href="#about-me" class="block px-6 py-3 hover:bg-gray-700 hover:text-primary transition duration-300">About Me</a> 
@@ -625,8 +659,6 @@
                     </p>
                 </div>
             </section>
-
-            <!-- Carousel Section HTML Removed -->
 
             <section id="services" class="py-20">
                  <div class="container mx-auto px-6 text-center">
@@ -791,7 +823,7 @@
                                 <p class="text-gray-300 floating-text-light">No, many AI automation solutions are designed to be user-friendly and require minimal technical expertise. Some providers offer support and training to help you get started.</p>
                             </div>
                         </div>
-                        <div class="faq-item fade-in" style="animation-delay: 0.6s;">
+                         <div class="faq-item fade-in" style="animation-delay: 0.6s;">
                              <button class="faq-question w-full">
                                 <h3 class="floating-text">Q: How do I choose the right AI automation solutions for my business?</h3>
                                 <span class="faq-indicator floating-text">+</span>
@@ -846,7 +878,8 @@
                     <h2 class="text-4xl font-bold mb-12 fade-in floating-text">About Me</h2>
                     <div class="flex flex-col md:flex-row items-center justify-center gap-10 max-w-4xl mx-auto">
                         <div class="md:w-1/3 flex justify-center fade-in" style="animation-delay: 0.1s;">
-                            <img src="Profile.png" alt="A portrait of the business owner" class="about-me-image" onerror="this.onerror=null;this.src='https://placehold.co/200x200/333333/FFFFFF?text=Image+Error+Check+Profile.png';">
+                             <!-- Image 'src' uses your file path -->
+                            <img src="Profile.png" alt="A portrait of the business owner" class="about-me-image" onerror="this.onerror=null;this.src='https://placehold.co/200x200/333333/FFFFFF?text=Error';">
                         </div>
                         <div class="md:w-2/3 text-left md:text-left space-y-4">
                             <p class="text-lg text-gray-200 floating-text-light fade-in" style="animation-delay: 0.2s;">
@@ -879,7 +912,7 @@
             </div>
         </footer>
     </div> 
-    
+   
     <div id="floating-cta-bar">
         <button id="open-contact-modal-button" class="widget-icon" aria-label="Open contact form">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -891,62 +924,178 @@
     <div id="contact-modal-overlay" class="modal-overlay">
         <div class="modal-content">
             <button id="close-contact-modal-button" class="modal-close-button" aria-label="Close modal">&times;</button>
-            
+           
             <div id="calendar-view-container">
-                <h2 class="text-2xl font-bold mb-4 floating-text text-primary">Book an Appointment</h2>
+                <h2 class="text-2xl font-bold mb-4 floating-text text-primary">Book a Free Consultation</h2>
+                <p class="text-gray-300 mb-4">Please select a date and time for your call.</p>
                 <div class="calendar-container">
                     <div class="calendar-header">
                         <button id="prev-month-button">&lt;</button>
-                        <h3 id="month-year-display" class="text-xl font-semibold floating-text">June 2025</h3>
+                        <h3 id="month-year-display" class="text-xl font-semibold floating-text"></h3>
                         <button id="next-month-button">&gt;</button>
                     </div>
                     <div class="calendar-grid">
-                        <div class="calendar-day-name">Sun</div>
-                        <div class="calendar-day-name">Mon</div>
-                        <div class="calendar-day-name">Tue</div>
-                        <div class="calendar-day-name">Wed</div>
-                        <div class="calendar-day-name">Thu</div>
-                        <div class="calendar-day-name">Fri</div>
-                        <div class="calendar-day-name">Sat</div>
-                        </div>
+                        <!-- Day names will be generated by JS -->
+                    </div>
                 </div>
                 <div id="time-slots-container" class="time-slots-container">
-                    </div>
+                    <!-- Time slots will be generated by JS -->
+                </div>
                 <div id="availability-status" class="availability-message mt-4"></div>
             </div>
 
             <div id="contact-form-container">
-                <h2 class="text-2xl font-bold mb-6 floating-text text-primary">Confirm Your Details</h2>
-                <form id="contact-form">
-                    <div class="mb-4">
+                <form id="contact-form" novalidate>
+                     <div id="form-error-message" class="text-red-400 text-sm mb-4 text-left" style="display: none;"></div>
+                     
+                     <div class="mb-4">
                         <label for="selected-appointment" class="form-label">Selected Appointment:</label>
                         <input type="text" id="selected-appointment" name="selectedAppointment" class="form-input bg-gray-600" readonly>
                     </div>
-                    <div class="mb-4">
-                        <label for="name" class="form-label">Your Name:</label>
-                        <input type="text" id="name" name="name" class="form-input" required>
+
+                    <h2 class="form-section-heading">Contact & Follow-Up</h2>
+                     <div class="grid md:grid-cols-2 gap-x-4">
+                        <div>
+                            <label for="name" class="form-label">Your Name:</label>
+                            <input type="text" id="name" name="name" class="form-input mb-4" required>
+                        </div>
+                        <div>
+                            <label for="email" class="form-label">Email Address:</label>
+                            <input type="email" id="email" name="email" class="form-input mb-4" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="form-label">Phone (optional):</label>
+                            <input type="tel" id="phone" name="phone" class="form-input mb-4">
+                        </div>
+                        <div>
+                            <label for="followup" class="form-label">Preferred Follow-Up Method:</label>
+                            <select id="followup" name="followup" class="form-select mb-4">
+                                <option>Email</option>
+                                <option>Text</option>
+                                <option>Phone call</option>
+                                <option>No contact – just browsing</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="mb-4">
-                        <label for="businessName" class="form-label">Business Name:</label>
-                        <input type="text" id="businessName" name="businessName" class="form-input">
+
+
+                    <h2 class="form-section-heading">Business Overview</h2>
+                    <div class="grid md:grid-cols-2 gap-x-4">
+                        <div>
+                            <label for="business_name" class="form-label">Business Name:</label>
+                            <input type="text" id="business_name" name="business_name" class="form-input mb-4" required>
+                        </div>
+                        <div>
+                            <label for="industry" class="form-label">Industry:</label>
+                            <input type="text" id="industry" name="industry" class="form-input mb-4" required>
+                        </div>
                     </div>
-                    <div class="mb-4">
-                        <label for="phone" class="form-label">Phone Number:</label>
-                        <input type="tel" id="phone" name="phone" class="form-input">
+                    <div>
+                        <label for="services" class="form-label">Services/Products Offered:</label>
+                        <textarea id="services" name="services" rows="2" class="form-textarea mb-4"></textarea>
                     </div>
-                    <div class="mb-6">
-                        <label for="problems" class="form-label">Describe the problems you are facing:</label>
-                        <textarea id="problems" name="problems" rows="3" class="form-textarea" required></textarea>
+                     <div>
+                        <label for="team_size" class="form-label">Team Size:</label>
+                        <select id="team_size" name="team_size" class="form-select mb-4">
+                            <option>Solo</option>
+                            <option>2–5</option>
+                            <option>6–10</option>
+                            <option>11–20</option>
+                            <option>20+</option>
+                        </select>
                     </div>
-                    <button type="submit" class="fancy-button block w-full cta-button">Send Request</button>
+
+
+                    <h2 class="form-section-heading">Business Operations</h2>
+                    <div>
+                        <label class="form-label">What are your most time-consuming daily tasks? (select all that apply)</label>
+                        <div class="form-checkbox-group">
+                            <label class="form-checkbox-label"><input type="checkbox" name="tasks" value="Booking appointments" class="form-checkbox"> Booking appointments</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="tasks" value="Sending reminders" class="form-checkbox"> Sending reminders</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="tasks" value="Collecting payments/invoices" class="form-checkbox"> Collecting payments/invoices</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="tasks" value="Answering calls or chats" class="form-checkbox"> Answering calls or chats</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="tasks" value="Email/SMS campaigns" class="form-checkbox"> Email/SMS campaigns</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="tasks" value="Client onboarding" class="form-checkbox"> Client onboarding</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="tasks" value="Document signing" class="form-checkbox"> Document signing</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="tasks" value="CRM management" class="form-checkbox"> CRM management</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="tasks" value="Follow-up automation" class="form-checkbox"> Follow-up automation</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="tasks" value="Social media posting" class="form-checkbox"> Social media posting</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="tasks" value="Lead capture" class="form-checkbox"> Lead capture</label>
+                             <div class="other-input-container">
+                                <label class="form-checkbox-label"><input type="checkbox" name="tasks" value="Other" class="form-checkbox"> Other:</label>
+                                <input type="text" name="other_tasks" class="form-input other-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="tools" class="form-label">What are your current tools/platforms? (e.g., Google Calendar, Square, Acuity)</label>
+                        <textarea id="tools" name="tools" rows="2" class="form-textarea mb-4"></textarea>
+                    </div>
+                    <div>
+                        <label for="pain_points" class="form-label">Where are you losing the most time or missing out on leads?</label>
+                        <textarea id="pain_points" name="pain_points" rows="2" class="form-textarea mb-4"></textarea>
+                    </div>
+                    
+
+                    <h2 class="form-section-heading">Automation Goals</h2>
+                    <div>
+                        <label class="form-label">What is the first thing you'd like to automate?</label>
+                         <div class="form-checkbox-group">
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Appointment scheduling" class="form-checkbox"> Appointment scheduling</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Customer service" class="form-checkbox"> Customer service</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Lead capture" class="form-checkbox"> Lead capture</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Payment collection" class="form-checkbox"> Payment collection</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Online reviews" class="form-checkbox"> Online reviews</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Email/text marketing" class="form-checkbox"> Email/text marketing</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Onboarding" class="form-checkbox"> Onboarding</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Invoicing" class="form-checkbox"> Invoicing</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Content repurposing" class="form-checkbox"> Content repurposing</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Internal workflows" class="form-checkbox"> Internal workflows</label>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-x-4">
+                        <div>
+                            <label for="experience" class="form-label">What's your experience with automation?</label>
+                            <select id="experience" name="experience" class="form-select mb-4">
+                                <option>Yes, and I loved it</option>
+                                <option>Yes, but it was too confusing</option>
+                                <option>No, I’m new to automation</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="budget" class="form-label">What's your monthly budget for this?</label>
+                            <select id="budget" name="budget" class="form-select mb-4">
+                                <option>$0–$100 (DIY support)</option>
+                                <option>$101–$500 (Done-with-you)</option>
+                                <option>$501–$1500 (Done-for-you)</option>
+                                <option>$1500+ (Full service)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="notes" class="form-label">Additional Notes:</label>
+                        <textarea id="notes" name="notes" rows="2" class="form-textarea"></textarea>
+                    </div>
+
+                    <button type="submit" class="fancy-button block w-full mt-6">Book My Free Consultation</button>
                 </form>
             </div>
+            
+            <div id="submission-status-container" style="display: none;" class="text-center p-4">
+                 <h2 id="submission-status-title" class="text-2xl font-bold mb-4 text-primary"></h2>
+                 <p id="submission-status-message" class="text-lg text-gray-300"></p>
+                 <button id="submission-status-close-button" class="fancy-button mt-6">Close</button>
+            </div>
+
         </div>
     </div>
 
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // UPDATED: Central webhook URL
+            const webhookUrl = 'https://hook.relay.app/api/v1/playbook/cmbs453lt01i90oj87m6z978n/trigger/rLvKtvgH6lT_q1kj4swryw';
+            
             // Header scroll effect
             const header = document.getElementById('main-header');
             if (header) {
@@ -965,26 +1114,19 @@
                 currentYearSpan.textContent = new Date().getFullYear();
             }
 
-            // Intersection Observer for fade-in animations (for main content)
+            // Intersection Observer for fade-in animations
             const fadeInElements = document.querySelectorAll('.content-wrapper .fade-in'); 
             if (fadeInElements.length > 0) {
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            const computedStyle = window.getComputedStyle(entry.target);
-                            if (computedStyle.animationPlayState !== 'running' && computedStyle.opacity !== '1') {
-                                entry.target.style.opacity = '1';
-                                entry.target.style.animationPlayState = 'running';
-                            }
+                            entry.target.style.animationPlayState = 'running';
+                            observer.unobserve(entry.target);
                         }
                     });
                 }, { threshold: 0.1 });
 
-                fadeInElements.forEach(el => {
-                    el.style.opacity = '0';
-                    el.style.animationPlayState = 'paused';
-                    observer.observe(el);
-                });
+                fadeInElements.forEach(el => observer.observe(el));
             }
 
             // Mobile Menu Toggle
@@ -1005,13 +1147,9 @@
             // Floating CTA Bar Logic
             const floatingCtaBar = document.getElementById('floating-cta-bar');
             if (floatingCtaBar) {
-                console.log("Attempting to show CTA bar after 5 seconds..."); 
                 setTimeout(() => {
-                    console.log("CTA Bar timeout reached, adding 'visible' class."); 
                     floatingCtaBar.classList.add('visible');
                 }, 5000); 
-            } else {
-                console.error("Floating CTA bar element not found!");
             }
 
             // Modal Logic
@@ -1023,26 +1161,29 @@
             const contactForm = document.getElementById('contact-form');
             const selectedAppointmentInput = document.getElementById('selected-appointment');
             const availabilityStatusDiv = document.getElementById('availability-status');
-
+            const formErrorMessageDiv = document.getElementById('form-error-message');
+            const submissionStatusContainer = document.getElementById('submission-status-container');
+            const submissionStatusTitle = document.getElementById('submission-status-title');
+            const submissionStatusMessage = document.getElementById('submission-status-message');
+            const submissionStatusCloseButton = document.getElementById('submission-status-close-button');
 
             let currentMonthDate = new Date(); 
             let selectedDate = null;
             let selectedTime = null;
-            
+           
             function fireConfetti() {
-                // ... (confetti logic) ...
-                 if (typeof confetti !== 'function') { console.error("Confetti function not loaded"); return; }
-                var duration = 1.5 * 1000; 
-                var animationEnd = Date.now() + duration;
-                var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 2001 }; 
-                function randomInRange(min, max) { return Math.random() * (max - min) + min; }
-                var interval = setInterval(function() {
-                    var timeLeft = animationEnd - Date.now();
-                    if (timeLeft <= 0) { return clearInterval(interval); }
-                    var particleCount = 50 * (timeLeft / duration);
-                    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
-                    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
-                }, 250);
+                 if (typeof confetti !== 'function') { return; }
+                 var duration = 1.5 * 1000; 
+                 var animationEnd = Date.now() + duration;
+                 var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 2001 }; 
+                 function randomInRange(min, max) { return Math.random() * (max - min) + min; }
+                 var interval = setInterval(function() {
+                     var timeLeft = animationEnd - Date.now();
+                     if (timeLeft <= 0) { return clearInterval(interval); }
+                     var particleCount = 50 * (timeLeft / duration);
+                     confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                     confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+                 }, 250);
             }
 
             function showModal() {
@@ -1050,66 +1191,88 @@
                 renderCalendar(currentMonthDate); 
                 if(calendarViewContainer) calendarViewContainer.style.display = 'block';
                 if(contactFormContainer) contactFormContainer.style.display = 'none';
-                if(availabilityStatusDiv) availabilityStatusDiv.textContent = ''; 
+                if(submissionStatusContainer) submissionStatusContainer.style.display = 'none';
+                if(availabilityStatusDiv) availabilityStatusDiv.textContent = 'Select a day to see available times.'; 
                 if(modalOverlay) modalOverlay.classList.add('visible');
             }
 
             function hideModal() {
                 if(modalOverlay) modalOverlay.classList.remove('visible');
-                selectedDate = null; 
-                selectedTime = null;
-                if(contactForm) contactForm.reset(); 
-                if(selectedAppointmentInput) selectedAppointmentInput.value = ''; 
+                setTimeout(() => { // Reset form after transition
+                    selectedDate = null; 
+                    selectedTime = null;
+                    if(contactForm) contactForm.reset(); 
+                    if(selectedAppointmentInput) selectedAppointmentInput.value = ''; 
+                    if(formErrorMessageDiv) formErrorMessageDiv.style.display = 'none';
+                }, 300);
             }
 
-            if (openModalButton) {
-                openModalButton.addEventListener('click', showModal);
-            }
-            if (closeModalButton) {
-                closeModalButton.addEventListener('click', hideModal);
-            }
+            if (openModalButton) openModalButton.addEventListener('click', showModal);
+            if (closeModalButton) closeModalButton.addEventListener('click', hideModal);
+            if (submissionStatusCloseButton) submissionStatusCloseButton.addEventListener('click', hideModal);
             if (modalOverlay) {
-                modalOverlay.addEventListener('click', function(event) {
-                    if (event.target === modalOverlay) {
-                        hideModal();
-                    }
+                modalOverlay.addEventListener('click', (event) => {
+                    if (event.target === modalOverlay) hideModal();
                 });
             }
-            
+           
             if (contactForm) {
-                contactForm.addEventListener('submit', async function(event) { 
+                contactForm.addEventListener('submit', async (event) => { 
                     event.preventDefault(); 
-                    
+                   
+                    const getCheckedValues = (name) => Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(cb => cb.value);
+
                     const formData = {
-                        selectedAppointment: selectedAppointmentInput ? selectedAppointmentInput.value : "Not selected",
+                        action: 'submitForm', // Action for the webhook
+                        selectedAppointment: document.getElementById('selected-appointment').value,
                         name: document.getElementById('name').value,
-                        businessName: document.getElementById('businessName').value,
+                        email: document.getElementById('email').value,
                         phone: document.getElementById('phone').value,
-                        problems: document.getElementById('problems').value
+                        followup: document.getElementById('followup').value,
+                        business_name: document.getElementById('business_name').value,
+                        industry: document.getElementById('industry').value,
+                        services: document.getElementById('services').value,
+                        team_size: document.getElementById('team_size').value,
+                        tasks: getCheckedValues('tasks'),
+                        other_tasks: document.querySelector('input[name="other_tasks"]').value,
+                        tools: document.getElementById('tools').value,
+                        pain_points: document.getElementById('pain_points').value,
+                        priority: getCheckedValues('priority'),
+                        experience: document.getElementById('experience').value,
+                        budget: document.getElementById('budget').value,
+                        notes: document.getElementById('notes').value
                     };
-                    
+                   
                     const submitButton = contactForm.querySelector('button[type="submit"]');
                     const originalButtonText = submitButton.textContent;
                     submitButton.textContent = 'Sending...';
                     submitButton.disabled = true;
+                    if (formErrorMessageDiv) formErrorMessageDiv.style.display = 'none';
 
                     try {
-                        // This is the webhook for FINAL form submission
-                        const response = await fetch('https://hook.us1.make.com/f8jhsa1zb219b759xat8h67pd5go55ph', {
+                        const response = await fetch(webhookUrl, {
                             method: 'POST',
-                            headers: { 'Content-Type': 'application/json', },
+                            headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(formData),
                         });
 
                         if (response.ok) {
-                            alert('Appointment request sent successfully! We will confirm availability.'); 
-                            contactForm.reset();
-                            hideModal(); 
+                            if (contactFormContainer) contactFormContainer.style.display = 'none';
+                            if (submissionStatusTitle) submissionStatusTitle.textContent = 'Request Sent!';
+                            if (submissionStatusMessage) submissionStatusMessage.textContent = 'Thank you for your interest. We will review your request and confirm your appointment shortly.';
+                            if (submissionStatusContainer) submissionStatusContainer.style.display = 'block';
+
                         } else {
-                            alert('There was an error sending your request. Please try again.');
+                            if (formErrorMessageDiv) {
+                                formErrorMessageDiv.textContent = 'There was an error sending your request. Please try again.';
+                                formErrorMessageDiv.style.display = 'block';
+                            }
                         }
                     } catch (error) {
-                        alert('There was an error sending your request. Please check your connection and try again.');
+                         if (formErrorMessageDiv) {
+                                formErrorMessageDiv.textContent = 'There was a network error. Please check your connection and try again.';
+                                formErrorMessageDiv.style.display = 'block';
+                            }
                     } finally {
                         submitButton.textContent = originalButtonText;
                         submitButton.disabled = false;
@@ -1125,14 +1288,14 @@
             const timeSlotsContainer = document.getElementById('time-slots-container'); 
 
             function renderCalendar(date) {
-                 if (!calendarGrid || !monthYearDisplay) { console.error("Calendar elements not found"); return; }
-                calendarGrid.innerHTML = ''; 
-                ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].forEach(dayName => {
-                    const dayNameDiv = document.createElement('div');
-                    dayNameDiv.classList.add('calendar-day-name');
-                    dayNameDiv.textContent = dayName;
-                    calendarGrid.appendChild(dayNameDiv);
-                });
+                 if (!calendarGrid || !monthYearDisplay) { return; }
+                 calendarGrid.innerHTML = ''; 
+                 ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].forEach(dayName => {
+                     const dayNameDiv = document.createElement('div');
+                     dayNameDiv.classList.add('calendar-day-name');
+                     dayNameDiv.textContent = dayName;
+                     calendarGrid.appendChild(dayNameDiv);
+                 });
 
                 const year = date.getFullYear();
                 const month = date.getMonth();
@@ -1142,15 +1305,14 @@
                 const daysInMonth = new Date(year, month + 1, 0).getDate();
 
                 for (let i = 0; i < firstDayOfMonth; i++) {
-                    const emptyCell = document.createElement('div');
-                    calendarGrid.appendChild(emptyCell);
+                    calendarGrid.appendChild(document.createElement('div'));
                 }
 
                 for (let day = 1; day <= daysInMonth; day++) {
                     const dayCell = document.createElement('div');
                     dayCell.classList.add('calendar-day');
                     dayCell.textContent = day;
-                    
+                   
                     const today = new Date();
                     today.setHours(0,0,0,0); 
                     const cellDate = new Date(year, month, day);
@@ -1165,71 +1327,29 @@
                     calendarGrid.appendChild(dayCell);
                 }
                 if(timeSlotsContainer) timeSlotsContainer.innerHTML = ''; 
-                if(availabilityStatusDiv) availabilityStatusDiv.textContent = ''; 
+                if(availabilityStatusDiv) availabilityStatusDiv.textContent = 'Select a day to see available times.'; 
             }
 
             function selectDate(dayCell, date) {
                 selectedDate = date;
                 document.querySelectorAll('#contact-modal-overlay .calendar-day.selected').forEach(d => d.classList.remove('selected'));
                 dayCell.classList.add('selected');
-                renderTimeSlots(date);
+                renderStaticTimeSlots(date);
             }
 
-            async function checkAvailabilityAndProceed(date, time) {
-                if (!availabilityStatusDiv || !calendarViewContainer || !contactFormContainer || !selectedAppointmentInput) {
-                     console.error("One or more modal elements for availability check not found.");
-                     return;
-                }
-                
-                availabilityStatusDiv.textContent = 'Checking availability...';
-                availabilityStatusDiv.className = 'availability-message floating-text-light'; 
-
-                // ** UPDATED WEBHOOK URL FOR AVAILABILITY CHECK **
-                const availabilityWebhookUrl = 'https://hook.us1.make.com/f8jhsa1zb219b759xat8h67pd5go55ph'; 
-                
-                try {
-                    const response = await fetch(availabilityWebhookUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ 
-                            action: 'checkAvailability', 
-                            date: date.toISOString().split('T')[0], 
-                            time: time 
-                        })
-                    });
-
-                    if (!response.ok) {
-                        throw new Error(`Webhook responded with ${response.status}`);
-                    }
-
-                    const result = await response.json(); 
-
-                    if (result.status === "available") {
-                        selectedTime = time;
-                        const formattedDate = date.toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
-                        selectedAppointmentInput.value = `${formattedDate} at ${selectedTime}`;
-                        calendarViewContainer.style.display = 'none';
-                        contactFormContainer.style.display = 'block';
-                        document.getElementById('name').focus();
-                        availabilityStatusDiv.textContent = '';
-                    } else {
-                        availabilityStatusDiv.textContent = result.message || 'Sorry, that time is unavailable. Please choose another.';
-                        availabilityStatusDiv.classList.add('error');
-                        selectedTime = null; 
-                        document.querySelectorAll('#contact-modal-overlay .time-slot.selected').forEach(ts => ts.classList.remove('selected'));
-                    }
-                } catch (error) {
-                    console.error('Error checking availability:', error);
-                    availabilityStatusDiv.textContent = 'Error checking availability. Please try again.';
-                    availabilityStatusDiv.classList.add('error');
-                    selectedTime = null;
-                }
+            function showFormView(time) {
+                selectedTime = time;
+                const formattedDate = selectedDate.toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
+                selectedAppointmentInput.value = `${formattedDate} at ${selectedTime}`;
+                calendarViewContainer.style.display = 'none';
+                contactFormContainer.style.display = 'block';
+                document.getElementById('name').focus();
             }
-
-
-            function renderTimeSlots(date) {
-                 if (!timeSlotsContainer) return;
-                timeSlotsContainer.innerHTML = ''; 
+            
+            // UPDATED: Reverted to static time slots to fix the error
+            function renderStaticTimeSlots(date) {
+                if (!timeSlotsContainer || !availabilityStatusDiv) return;
+                timeSlotsContainer.innerHTML = '';
                 
                 const availableTimes = ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM", "04:00 PM"];
                 
@@ -1237,35 +1357,49 @@
                 const isToday = date.toDateString() === today.toDateString();
                 const currentHour = today.getHours();
                 
+                let hasAvailableSlots = false;
+                
                 availableTimes.forEach(time => {
                     const timeSlotButton = document.createElement('button');
                     timeSlotButton.classList.add('time-slot');
                     timeSlotButton.textContent = time;
 
+                    let isPast = false;
                     if (isToday) {
                         const slotHour = parseInt(time.split(':')[0]);
                         const isPM = time.includes('PM');
                         let slotHour24 = slotHour;
                         if (isPM && slotHour !== 12) slotHour24 += 12;
                         if (!isPM && slotHour === 12) slotHour24 = 0; 
-
-                        if (slotHour24 < currentHour) {
-                            timeSlotButton.disabled = true;
-                            timeSlotButton.style.opacity = '0.5';
-                            timeSlotButton.style.cursor = 'not-allowed';
+                        if (slotHour24 <= currentHour) { 
+                            isPast = true;
                         }
                     }
 
-                    if (!timeSlotButton.disabled) {
+                    if (isPast) {
+                        timeSlotButton.disabled = true;
+                        timeSlotButton.style.opacity = '0.5';
+                        timeSlotButton.style.cursor = 'not-allowed';
+                    } else {
+                        hasAvailableSlots = true;
                         timeSlotButton.addEventListener('click', () => {
                             document.querySelectorAll('#contact-modal-overlay .time-slot.selected').forEach(ts => ts.classList.remove('selected'));
                             timeSlotButton.classList.add('selected');
-                            checkAvailabilityAndProceed(selectedDate, time); 
+                            showFormView(time); 
                         });
                     }
                     timeSlotsContainer.appendChild(timeSlotButton);
                 });
+
+                if (hasAvailableSlots) {
+                    availabilityStatusDiv.textContent = 'Please select a time.';
+                    availabilityStatusDiv.className = 'availability-message';
+                } else {
+                    availabilityStatusDiv.textContent = 'No available times for this date.';
+                    availabilityStatusDiv.className = 'availability-message error';
+                }
             }
+
 
             if(prevMonthButton) {
                 prevMonthButton.addEventListener('click', () => {
@@ -1279,7 +1413,7 @@
                     renderCalendar(currentMonthDate);
                 });
             }
-            
+           
             // --- FAQ Accordion Logic ---
             const faqItems = document.querySelectorAll('.faq-item');
             faqItems.forEach(item => {
