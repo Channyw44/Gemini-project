@@ -72,7 +72,7 @@
           content: ""; position: absolute; inset: 0; margin: auto;
           border-radius: 10px; 
           filter: blur(0); z-index: -1; box-shadow: none;
-          background: conic-gradient(#00000000 80deg, #ffffff, #f34ad4, #5bfcc4, #00000000 280deg);
+          background: conic-gradient(#00000000 80deg, #ffffff, #f34ad7, #5bfcc4, #00000000 280deg);
           transition: all 0.3s ease;
         }
         .fancy-button:hover::before { filter: blur(12px); } 
@@ -135,24 +135,31 @@
             radial-gradient(4px 100px at 0px 210px, #38bdf8, #0000),
             radial-gradient(4px 100px at 300px 210px, #38bdf8, #0000),
             radial-gradient(1.5px 1.5px at 150px 105px, #38bdf8 100%, #0000 150%);
+          background-size:
+            300px 235px, 300px 235px, 300px 235px, 300px 252px, 300px 252px, 300px 252px,
+            300px 150px, 300px 150px, 300px 150px, 300px 253px, 300px 253px, 300px 253px,
+            300px 204px, 300px 204px, 300px 204px, 300px 134px, 300px 134px, 300px 134px,
+            300px 179px, 300px 179px, 300px 179px, 300px 299px, 300px 299px, 300px 299px,
+            300px 215px, 300px 215px, 300px 215px, 300px 281px, 300px 281px, 300px 281px,
+            300px 158px, 300px 158px, 300px 158px, 300px 210px, 300px 210px, 300px 210px;
           animation: rain-animation 150s linear infinite;
         }
 
         @keyframes rain-animation { /* Keyframes remain the same */
           0% { background-position: /* Start positions */
-            0px 220px, 3px 220px, 151.5px 337.5px, 25px 24px, 28px 24px, 176.5px 150px,
-            50px 16px, 53px 16px, 201.5px 91px, 75px 224px, 78px 224px, 226.5px 350.5px,
-            100px 19px, 103px 19px, 251.5px 121px, 125px 120px, 128px 120px, 276.5px 187px,
-            150px 31px, 153px 31px, 301.5px 120.5px, 175px 235px, 178px 235px, 326.5px 384.5px,
-            200px 121px, 203px 121px, 351.5px 228.5px, 225px 224px, 228px 224px, 376.5px 364.5px,
-            250px 26px, 253px 26px, 401.5px 105px, 275px 75px, 278px 75px, 426.5px 180px; }
+              0px 220px, 3px 220px, 151.5px 337.5px, 25px 24px, 28px 24px, 176.5px 150px,
+              50px 16px, 53px 16px, 201.5px 91px, 75px 224px, 78px 224px, 226.5px 350.5px,
+              100px 19px, 103px 19px, 251.5px 121px, 125px 120px, 128px 120px, 276.5px 187px,
+              150px 31px, 153px 31px, 301.5px 120.5px, 175px 235px, 178px 235px, 326.5px 384.5px,
+              200px 121px, 203px 121px, 351.5px 228.5px, 225px 224px, 228px 224px, 376.5px 364.5px,
+              250px 26px, 253px 26px, 401.5px 105px, 275px 75px, 278px 75px, 426.5px 180px; }
           to { background-position: /* End positions */
-            0px 6800px, 3px 6800px, 151.5px 6917.5px, 25px 13632px, 28px 13632px, 176.5px 13758px,
-            50px 5416px, 53px 5416px, 201.5px 5491px, 75px 17175px, 78px 17175px, 226.5px 17301.5px,
-            100px 5119px, 103px 5119px, 251.5px 5221px, 125px 8428px, 128px 8428px, 276.5px 8495px,
-            150px 9876px, 153px 9876px, 301.5px 9965.5px, 175px 13391px, 178px 13391px, 326.5px 13540.5px,
-            200px 14741px, 203px 14741px, 351.5px 14848.5px, 225px 18770px, 228px 18770px, 376.5px 18910.5px,
-            250px 5082px, 253px 5082px, 401.5px 5161px, 275px 6375px, 278px 6375px, 426.5px 6480px; }
+              0px 6800px, 3px 6800px, 151.5px 6917.5px, 25px 13632px, 28px 13632px, 176.5px 13758px,
+              50px 5416px, 53px 5416px, 201.5px 5491px, 75px 17175px, 78px 17175px, 226.5px 17301.5px,
+              100px 5119px, 103px 5119px, 251.5px 5221px, 125px 8428px, 128px 8428px, 276.5px 8495px,
+              150px 9876px, 153px 9876px, 301.5px 9965.5px, 175px 13391px, 178px 13391px, 326.5px 13540.5px,
+              200px 14741px, 203px 14741px, 351.5px 14848.5px, 225px 18770px, 228px 18770px, 376.5px 18910.5px,
+              250px 5082px, 253px 5082px, 401.5px 5161px, 275px 6375px, 278px 6375px, 426.5px 6480px; }
         }
         /* --- End Rain Effect Styles --- */
 
@@ -162,7 +169,7 @@
             z-index: 1;
         }
 
-          /* Hero Section Adjustments */
+         /* Hero Section Adjustments */
         #hero {
             position: relative;
             display: flex; 
@@ -239,7 +246,7 @@
             width: 30px; 
             height: 30px;
         }
-        
+       
         /* --- Modal Styles --- */
         .modal-overlay {
             position: fixed;
@@ -292,10 +299,9 @@
         .modal-close-button:hover {
             color: #e5e7eb; 
         }
-        
+       
         /* Calendar Styles */
         .calendar-container {
-            margin-top: 1.5rem; /* Add some space above calendar when it's lower */
             margin-bottom: 1.5rem;
         }
         .calendar-header {
@@ -381,7 +387,7 @@
         }
 
 
-        /* --- Form Styles --- */
+        /* --- UPDATED: Form Styles --- */
         .form-section-heading {
             font-size: 1.25rem; /* text-xl */
             font-weight: 700;
@@ -419,7 +425,9 @@
             min-height: 80px;
             resize: vertical;
         }
-        /* contact-form-container is now always visible when modal is open */
+        #contact-form-container {
+            display: none; /* Initially hidden */
+        }
         .form-checkbox-group {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -511,7 +519,7 @@
         }
 
         /* Carousel Styles - Removed */
-        
+       
         /* FAQ Accordion Styles */
         .faq-item {
             margin-bottom: 1rem;
@@ -613,7 +621,7 @@
             <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
                 <a href="#" class="text-2xl text-primary elegant-brand">
                     <!-- Image 'src' uses your file path -->
-                    <img src="Willabylogo.png" alt="Willaby Solutions Logo" onerror="this.onerror=null;this.src='https://placehold.co/128x32/111827/FFFFFF?text=Error'"> 
+                    <img src="Willabylogo.png" alt="Willaby Solutions Logo" class="brand-logo" onerror="this.onerror=null;this.src='https://placehold.co/128x32/111827/FFFFFF?text=Error'"> 
                     Willaby Solutions
                 </a>
                 <button id="mobile-menu-button" class="md:hidden text-dark-text hover:text-primary focus:outline-none">
@@ -653,52 +661,52 @@
             </section>
 
             <section id="services" class="py-20">
-                   <div class="container mx-auto px-6 text-center">
-                     <h2 class="text-4xl font-bold mb-6 fade-in floating-text">What We Help With</h2>
-                     <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto floating-text-light">
-                         We streamline the messy stuff that eats up your time:
-                     </p>
-                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                         <div class="service-item card-hover-effect fade-in" style="animation-delay: 0.1s;">
-                             <h3 class="text-2xl font-semibold mb-3 floating-text">✅ Auto Answering + Booking</h3>
-                             <p class="text-gray-300 floating-text-light">No more missed calls or no-shows.</p>
-                         </div>
-                         <div class="service-item card-hover-effect fade-in" style="animation-delay: 0.2s;">
-                             <h3 class="text-2xl font-semibold mb-3 floating-text">✅ Smart Scheduling</h3>
-                             <p class="text-gray-300 floating-text-light">Let clients book (or reschedule) themselves.</p>
-                         </div>
-                         <div class="service-item card-hover-effect fade-in" style="animation-delay: 0.3s;">
-                             <h3 class="text-2xl font-semibold mb-3 floating-text">✅ Follow-Ups & Reminders</h3>
-                             <p class="text-gray-300 floating-text-light">Set it and forget it. We’ve got it handled.</p>
-                         </div>
-                         <div class="service-item card-hover-effect fade-in" style="animation-delay: 0.4s;">
-                             <h3 class="text-2xl font-semibold mb-3 floating-text">✅ Payments & Invoices</h3>
-                             <p class="text-gray-300 floating-text-light">Get paid without the paper chase.</p>
-                         </div>
-                         <div class="service-item card-hover-effect fade-in" style="animation-delay: 0.5s;">
-                             <h3 class="text-2xl font-semibold mb-3 floating-text">✅ Lead Capture & Nurturing</h3>
-                             <p class="text-gray-300 floating-text-light">Every inquiry becomes a warm lead.</p>
-                         </div>
-                         <div class="service-item card-hover-effect fade-in" style="animation-delay: 0.6s;">
-                             <h3 class="text-2xl font-semibold mb-3 floating-text">✅ Review Requests</h3>
-                             <p class="text-gray-300 floating-text-light">More 5-stars. No awkward ask.</p>
-                         </div>
-                     </div>
-                       <p class="text-2xl text-gray-100 mt-12 floating-text">Think: personal assistant <span class="text-primary">without the payroll.</span></p>
-                   </div>
+                 <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-4xl font-bold mb-6 fade-in floating-text">What We Help With</h2>
+                    <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto floating-text-light">
+                        We streamline the messy stuff that eats up your time:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                        <div class="service-item card-hover-effect fade-in" style="animation-delay: 0.1s;">
+                            <h3 class="text-2xl font-semibold mb-3 floating-text">✅ Auto Answering + Booking</h3>
+                            <p class="text-gray-300 floating-text-light">No more missed calls or no-shows.</p>
+                        </div>
+                        <div class="service-item card-hover-effect fade-in" style="animation-delay: 0.2s;">
+                            <h3 class="text-2xl font-semibold mb-3 floating-text">✅ Smart Scheduling</h3>
+                            <p class="text-gray-300 floating-text-light">Let clients book (or reschedule) themselves.</p>
+                        </div>
+                        <div class="service-item card-hover-effect fade-in" style="animation-delay: 0.3s;">
+                            <h3 class="text-2xl font-semibold mb-3 floating-text">✅ Follow-Ups & Reminders</h3>
+                            <p class="text-gray-300 floating-text-light">Set it and forget it. We’ve got it handled.</p>
+                        </div>
+                        <div class="service-item card-hover-effect fade-in" style="animation-delay: 0.4s;">
+                            <h3 class="text-2xl font-semibold mb-3 floating-text">✅ Payments & Invoices</h3>
+                            <p class="text-gray-300 floating-text-light">Get paid without the paper chase.</p>
+                        </div>
+                        <div class="service-item card-hover-effect fade-in" style="animation-delay: 0.5s;">
+                            <h3 class="text-2xl font-semibold mb-3 floating-text">✅ Lead Capture & Nurturing</h3>
+                            <p class="text-gray-300 floating-text-light">Every inquiry becomes a warm lead.</p>
+                        </div>
+                        <div class="service-item card-hover-effect fade-in" style="animation-delay: 0.6s;">
+                            <h3 class="text-2xl font-semibold mb-3 floating-text">✅ Review Requests</h3>
+                            <p class="text-gray-300 floating-text-light">More 5-stars. No awkward ask.</p>
+                        </div>
+                    </div>
+                     <p class="text-2xl text-gray-100 mt-12 floating-text">Think: personal assistant <span class="text-primary">without the payroll.</span></p>
+                </div>
             </section>
 
             <section id="why-matters" class="py-20">
-                   <div class="container mx-auto px-6 text-center">
-                     <h2 class="text-4xl font-bold mb-6 fade-in floating-text"><span class="shining-star">✨</span> Why It Matters</h2>
-                     <div class="max-w-3xl mx-auto">
-                         <p class="text-3xl text-primary mb-6 floating-text">Time saved = money earned.</p>
-                         <p class="text-2xl text-gray-200 mb-6 floating-text-light">⛔️ No more lost leads, missed appointments, or burnout.</p>
-                         <p class="text-xl text-gray-300 floating-text-light">
-                             With simple automations running behind the scenes, you stay focused on what you do best—and stop wasting hours on what you don’t.
-                         </p>
-                     </div>
-                   </div>
+                 <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-4xl font-bold mb-6 fade-in floating-text"><span class="shining-star">✨</span> Why It Matters</h2>
+                    <div class="max-w-3xl mx-auto">
+                        <p class="text-3xl text-primary mb-6 floating-text">Time saved = money earned.</p>
+                        <p class="text-2xl text-gray-200 mb-6 floating-text-light">⛔️ No more lost leads, missed appointments, or burnout.</p>
+                        <p class="text-xl text-gray-300 floating-text-light">
+                            With simple automations running behind the scenes, you stay focused on what you do best—and stop wasting hours on what you don’t.
+                        </p>
+                    </div>
+                </div>
             </section>
 
             <section id="custom-pricing-section" class="py-20">
@@ -712,7 +720,7 @@
                             <p class="text-gray-200 floating-text-light">✓ No bloated packages or hidden fees</p>
                         </div>
                         <div class="text-center p-2">
-                            <p class="text-2xl text-gray-200 floating-text-light">✓ Exactly what you need, nothing you don’t</p>
+                            <p class="text-gray-200 floating-text-light">✓ Exactly what you need, nothing you don’t</p>
                         </div>
                         <div class="text-center p-2">
                             <p class="text-gray-200 floating-text-light">✓ DIY guidance available if preferred</p>
@@ -726,7 +734,7 @@
                             <h3 class="text-2xl font-semibold mb-2 text-primary">Starter Automation</h3>
                             <p class="text-gray-300 text-sm mb-4 floating-text-light">Perfect for solopreneurs just beginning to automate their business processes.</p>
                             <p class="text-4xl font-bold my-4 text-white floating-text">From $497</p>
-                            <a href="javascript:void(0);" class="fancy-button block w-full mt-auto mb-6" id="cta-starter">Book a Free Consultation</a>
+                            <a href="#floating-cta-bar" onclick="document.getElementById('open-contact-modal-button').click(); return false;" class="fancy-button block w-full mt-auto mb-6">Book a Free Consultation</a>
                             <h4 class="text-lg font-semibold mb-2 text-gray-200 floating-text">WHAT'S INCLUDED</h4>
                             <ul class="text-gray-400 space-y-1 text-sm text-left floating-text-light">
                                 <li>✓ 1 core automation system</li>
@@ -740,7 +748,7 @@
                             <h3 class="text-2xl font-semibold mb-2 text-primary mt-4">Growth Suite</h3>
                             <p class="text-gray-300 text-sm mb-4 floating-text-light">Ideal for established businesses ready to significantly reduce manual workload.</p>
                             <p class="text-4xl font-bold my-4 text-white floating-text">From $997</p>
-                             <a href="javascript:void(0);" class="fancy-button block w-full mt-auto mb-6" id="cta-growth">Book a Free Consultation</a>
+                             <a href="#floating-cta-bar" onclick="document.getElementById('open-contact-modal-button').click(); return false;" class="fancy-button block w-full mt-auto mb-6">Book a Free Consultation</a>
                             <h4 class="text-lg font-semibold mb-2 text-gray-200 floating-text">WHAT'S INCLUDED</h4>
                             <ul class="text-gray-400 space-y-1 text-sm text-left floating-text-light">
                                 <li>✓ 3 integrated automation systems</li>
@@ -753,7 +761,7 @@
                             <h3 class="text-2xl font-semibold mb-2 text-primary">Enterprise Automation</h3>
                             <p class="text-gray-300 text-sm mb-4 floating-text-light">Comprehensive automation strategy for businesses with complex needs.</p>
                             <p class="text-4xl font-bold my-4 text-white floating-text">Custom Quote</p>
-                             <a href="javascript:void(0);" class="fancy-button block w-full mt-auto mb-6" id="cta-enterprise">Book a Free Consultation</a>
+                             <a href="#floating-cta-bar" onclick="document.getElementById('open-contact-modal-button').click(); return false;" class="fancy-button block w-full mt-auto mb-6">Book a Free Consultation</a>
                             <h4 class="text-lg font-semibold mb-2 text-gray-200 floating-text">WHAT'S INCLUDED</h4>
                             <ul class="text-gray-400 space-y-1 text-sm text-left floating-text-light">
                                 <li>✓ Full business process automation</li>
@@ -794,7 +802,7 @@
                                 <span class="faq-indicator floating-text">+</span>
                             </button>
                             <div class="faq-answer">
-                                <p class="text-gray-300 floating-text-light">Many tasks can be automated, including customer service (chatbots), marketing (email campaigns), social media), sales (lead scoring), operations (inventory management), and finance (bookkeeping). The possibilities are vast and growing.</p>
+                                <p class="text-gray-300 floating-text-light">Many tasks can be automated, including customer service (chatbots), marketing (email campaigns, social media), sales (lead scoring), operations (inventory management), and finance (bookkeeping). The possibilities are vast and growing.</p>
                             </div>
                         </div>
                         <div class="faq-item fade-in" style="animation-delay: 0.4s;">
@@ -815,51 +823,51 @@
                                 <p class="text-gray-300 floating-text-light">No, many AI automation solutions are designed to be user-friendly and require minimal technical expertise. Some providers offer support and training to help you get started.</p>
                             </div>
                         </div>
-                           <div class="faq-item fade-in" style="animation-delay: 0.6s;">
-                               <button class="faq-question w-full">
-                                 <h3 class="floating-text">Q: How do I choose the right AI automation solutions for my business?</h3>
-                                 <span class="faq-indicator floating-text">+</span>
-                               </button>
-                               <div class="faq-answer">
-                                 <p class="text-gray-300 floating-text-light">Start by assessing your business needs and identifying the areas where automation can have the biggest impact. Research different solutions, read reviews, and consider consulting with an AI automation expert to find the best fit for your needs.</p>
-                               </div>
-                           </div>
-                           <div class="faq-item fade-in" style="animation-delay: 0.7s;">
-                               <button class="faq-question w-full">
-                                 <h3 class="floating-text">Q: Will AI automation replace my employees?</h3>
-                                 <span class="faq-indicator floating-text">+</span>
-                               </button>
-                               <div class="faq-answer">
-                                 <p class="text-gray-300 floating-text-light">The goal of AI automation is not to replace employees but to augment their capabilities and free them from repetitive tasks. This allows employees to focus on more creative, strategic, and customer-facing activities.</p>
-                               </div>
-                           </div>
-                           <div class="faq-item fade-in" style="animation-delay: 0.8s;">
-                               <button class="faq-question w-full">
-                                 <h3 class="floating-text">Q: How secure is AI automation?</h3>
-                                 <span class="faq-indicator floating-text">+</span>
-                               </button>
-                               <div class="faq-answer">
-                                 <p class="text-gray-300 floating-text-light">Reputable AI automation providers prioritize data security and privacy. Look for solutions that comply with industry standards and regulations, and ensure that your data is protected.</p>
-                               </div>
-                           </div>
-                           <div class="faq-item fade-in" style="animation-delay: 0.9s;">
-                               <button class="faq-question w-full">
-                                 <h3 class="floating-text">Q: Can AI automation improve customer satisfaction?</h3>
-                                 <span class="faq-indicator floating-text">+</span>
-                               </button>
-                               <div class="faq-answer">
-                                 <p class="text-gray-300 floating-text-light">Yes, AI-powered chatbots can provide 24/7 customer support, personalized recommendations, and quick answers to common questions, leading to improved customer satisfaction.</p>
-                               </div>
-                           </div>
-                           <div class="faq-item fade-in" style="animation-delay: 1s;">
-                               <button class="faq-question w-full">
-                                 <h3 class="floating-text">Q: How do I get started with AI automation?</h3>
-                                 <span class="faq-indicator floating-text">+</span>
-                               </button>
-                               <div class="faq-answer">
-                                 <p class="text-gray-300 floating-text-light">Start by assessing your business needs and identifying the areas where automation can make a difference. Research available solutions, consult with experts, and begin with a pilot project to test the waters.</p>
-                               </div>
-                           </div>
+                         <div class="faq-item fade-in" style="animation-delay: 0.6s;">
+                             <button class="faq-question w-full">
+                                <h3 class="floating-text">Q: How do I choose the right AI automation solutions for my business?</h3>
+                                <span class="faq-indicator floating-text">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p class="text-gray-300 floating-text-light">Start by identifying the areas where automation can have the biggest impact. Research different solutions, read reviews, and consider consulting with an AI automation expert to find the best fit for your needs.</p>
+                            </div>
+                        </div>
+                         <div class="faq-item fade-in" style="animation-delay: 0.7s;">
+                            <button class="faq-question w-full">
+                                <h3 class="floating-text">Q: Will AI automation replace my employees?</h3>
+                                <span class="faq-indicator floating-text">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p class="text-gray-300 floating-text-light">The goal of AI automation is not to replace employees but to augment their capabilities and free them from repetitive tasks. This allows employees to focus on more creative, strategic, and customer-facing activities.</p>
+                            </div>
+                        </div>
+                         <div class="faq-item fade-in" style="animation-delay: 0.8s;">
+                            <button class="faq-question w-full">
+                                <h3 class="floating-text">Q: How secure is AI automation?</h3>
+                                <span class="faq-indicator floating-text">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p class="text-gray-300 floating-text-light">Reputable AI automation providers prioritize data security and privacy. Look for solutions that comply with industry standards and regulations, and ensure that your data is protected.</p>
+                            </div>
+                        </div>
+                         <div class="faq-item fade-in" style="animation-delay: 0.9s;">
+                            <button class="faq-question w-full">
+                                <h3 class="floating-text">Q: Can AI automation improve customer satisfaction?</h3>
+                                <span class="faq-indicator floating-text">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p class="text-gray-300 floating-text-light">Yes, AI-powered chatbots can provide 24/7 customer support, personalized recommendations, and quick answers to common questions, leading to improved customer satisfaction.</p>
+                            </div>
+                        </div>
+                         <div class="faq-item fade-in" style="animation-delay: 1s;">
+                            <button class="faq-question w-full">
+                                <h3 class="floating-text">Q: How do I get started with AI automation?</h3>
+                                <span class="faq-indicator floating-text">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p class="text-gray-300 floating-text-light">Start by assessing your business needs and identifying areas where automation can make a difference. Research available solutions, consult with experts, and begin with a pilot project to test the waters.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -871,7 +879,7 @@
                     <div class="flex flex-col md:flex-row items-center justify-center gap-10 max-w-4xl mx-auto">
                         <div class="md:w-1/3 flex justify-center fade-in" style="animation-delay: 0.1s;">
                              <!-- Image 'src' uses your file path -->
-                            <img src="Profile.png" alt="A portrait of the business owner" onerror="this.onerror=null;this.src='https://placehold.co/200x200/333333/FFFFFF?text=Error';">
+                            <img src="Profile.png" alt="A portrait of the business owner" class="about-me-image" onerror="this.onerror=null;this.src='https://placehold.co/200x200/333333/FFFFFF?text=Error';">
                         </div>
                         <div class="md:w-2/3 text-left md:text-left space-y-4">
                             <p class="text-lg text-gray-200 floating-text-light fade-in" style="animation-delay: 0.2s;">
@@ -895,16 +903,16 @@
 
         <footer class="py-8">
             <div class="container mx-auto px-6 text-center text-gray-400 floating-text-light">
-                   <p>&copy; <span id="current-year"></span> Willaby Solutions. All rights reserved.</p>
-                   <div class="mt-2">
-                     <a href="https://sites.google.com/d/1DlP4fQDXYnDqL6uijcJoR7ad9io5LUt5/p/1gwoMBGblIoZ-qUaEOT22f0EiTVrGu43U/edit" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary text-sm mx-2">Privacy Policy</a>
-                     <span class="text-gray-500">|</span>
-                     <a href="https://sites.google.com/d/1DlP4fQDXYnDqL6uijcJoR7ad9io5LUt5/p/1gwoMBGblIoZ-qUaEOT22f0EiTVrGu43U/edit" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary text-sm mx-2">Terms of Service</a>
-                 </div>
+                 <p>&copy; <span id="current-year"></span> Willaby Solutions. All rights reserved.</p>
+                 <div class="mt-2">
+                    <a href="https://sites.google.com/d/1DlP4fQDXYnDqL6uijcJoR7ad9io5LUt5/p/1gwoMBGblIoZ-qUaEOT22f0EiTVrGu43U/edit" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary text-sm mx-2">Privacy Policy</a>
+                    <span class="text-gray-500">|</span>
+                    <a href="https://sites.google.com/d/1DlP4fQDXYnDqL6uijcJoR7ad9io5LUt5/p/1gwoMBGblIoZ-qUaEOT22f0EiTVrGu43U/edit" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary text-sm mx-2">Terms of Service</a>
+                </div>
             </div>
         </footer>
     </div> 
-    
+   
     <div id="floating-cta-bar">
         <button id="open-contact-modal-button" class="widget-icon" aria-label="Open contact form">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -916,38 +924,59 @@
     <div id="contact-modal-overlay" class="modal-overlay">
         <div class="modal-content">
             <button id="close-contact-modal-button" class="modal-close-button" aria-label="Close modal">&times;</button>
-            
+           
+            <div id="calendar-view-container">
+                <h2 class="text-2xl font-bold mb-4 floating-text text-primary">Book a Free Consultation</h2>
+                <p class="text-gray-300 mb-4">Please select a date and time for your call.</p>
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button id="prev-month-button">&lt;</button>
+                        <h3 id="month-year-display" class="text-xl font-semibold floating-text"></h3>
+                        <button id="next-month-button">&gt;</button>
+                    </div>
+                    <div class="calendar-grid">
+                        <!-- Day names will be generated by JS -->
+                    </div>
+                </div>
+                <div id="time-slots-container" class="time-slots-container">
+                    <!-- Time slots will be generated by JS -->
+                </div>
+                <div id="availability-status" class="availability-message mt-4"></div>
+            </div>
+
             <div id="contact-form-container">
                 <form id="contact-form" novalidate>
                      <div id="form-error-message" class="text-red-400 text-sm mb-4 text-left" style="display: none;"></div>
                      
-                    <h2 class="text-2xl font-bold mb-4 floating-text text-primary">Book a Free Consultation</h2>
-                    <p class="text-gray-300 mb-4">Please fill out the form below and select your preferred consultation time.</p>
-                    
+                     <div class="mb-4">
+                        <label for="selected-appointment" class="form-label">Selected Appointment:</label>
+                        <input type="text" id="selected-appointment" name="selectedAppointment" class="form-input bg-gray-600" readonly>
+                    </div>
+
                     <h2 class="form-section-heading">Contact & Follow-Up</h2>
                      <div class="grid md:grid-cols-2 gap-x-4">
-                         <div>
-                             <label for="name" class="form-label">Your Name:</label>
-                             <input type="text" id="name" name="name" class="form-input mb-4" required>
-                         </div>
-                         <div>
-                             <label for="email" class="form-label">Email Address:</label>
-                             <input type="email" id="email" name="email" class="form-input mb-4" required>
-                         </div>
-                         <div>
-                             <label for="phone" class="form-label">Phone (optional):</label>
-                             <input type="tel" id="phone" name="phone" class="form-input mb-4">
-                         </div>
-                         <div>
-                             <label for="followup" class="form-label">Preferred Follow-Up Method:</label>
-                             <select id="followup" name="followup" class="form-select mb-4">
-                                 <option>Email</option>
-                                 <option>Text</option>
-                                 <option>Phone call</option>
-                                 <option>No contact – just browsing</option>
-                             </select>
-                         </div>
-                     </div>
+                        <div>
+                            <label for="name" class="form-label">Your Name:</label>
+                            <input type="text" id="name" name="name" class="form-input mb-4" required>
+                        </div>
+                        <div>
+                            <label for="email" class="form-label">Email Address:</label>
+                            <input type="email" id="email" name="email" class="form-input mb-4" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="form-label">Phone (optional):</label>
+                            <input type="tel" id="phone" name="phone" class="form-input mb-4">
+                        </div>
+                        <div>
+                            <label for="followup" class="form-label">Preferred Follow-Up Method:</label>
+                            <select id="followup" name="followup" class="form-select mb-4">
+                                <option>Email</option>
+                                <option>Text</option>
+                                <option>Phone call</option>
+                                <option>No contact – just browsing</option>
+                            </select>
+                        </div>
+                    </div>
 
 
                     <h2 class="form-section-heading">Business Overview</h2>
@@ -966,15 +995,15 @@
                         <textarea id="services" name="services" rows="2" class="form-textarea mb-4"></textarea>
                     </div>
                      <div>
-                         <label for="team_size" class="form-label">Team Size:</label>
-                         <select id="team_size" name="team_size" class="form-select mb-4">
-                             <option>Solo</option>
-                             <option>2–5</option>
-                             <option>6–10</option>
-                             <option>11–20</option>
-                             <option>20+</option>
-                         </select>
-                     </div>
+                        <label for="team_size" class="form-label">Team Size:</label>
+                        <select id="team_size" name="team_size" class="form-select mb-4">
+                            <option>Solo</option>
+                            <option>2–5</option>
+                            <option>6–10</option>
+                            <option>11–20</option>
+                            <option>20+</option>
+                        </select>
+                    </div>
 
 
                     <h2 class="form-section-heading">Business Operations</h2>
@@ -993,9 +1022,9 @@
                             <label class="form-checkbox-label"><input type="checkbox" name="tasks" value="Social media posting" class="form-checkbox"> Social media posting</label>
                             <label class="form-checkbox-label"><input type="checkbox" name="tasks" value="Lead capture" class="form-checkbox"> Lead capture</label>
                              <div class="other-input-container">
-                                 <label class="form-checkbox-label"><input type="checkbox" name="tasks" value="Other" class="form-checkbox"> Other:</label>
-                                 <input type="text" name="other_tasks" class="form-input other-input">
-                             </div>
+                                <label class="form-checkbox-label"><input type="checkbox" name="tasks" value="Other" class="form-checkbox"> Other:</label>
+                                <input type="text" name="other_tasks" class="form-input other-input">
+                            </div>
                         </div>
                     </div>
                     <div>
@@ -1012,17 +1041,17 @@
                     <div>
                         <label class="form-label">What is the first thing you'd like to automate?</label>
                          <div class="form-checkbox-group">
-                             <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Appointment scheduling" class="form-checkbox"> Appointment scheduling</label>
-                             <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Customer service" class="form-checkbox"> Customer service</label>
-                             <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Lead capture" class="form-checkbox"> Lead capture</label>
-                             <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Payment collection" class="form-checkbox"> Payment collection</label>
-                             <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Online reviews" class="form-checkbox"> Online reviews</label>
-                             <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Email/text marketing" class="form-checkbox"> Email/text marketing</label>
-                             <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Onboarding" class="form-checkbox"> Onboarding</label>
-                             <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Invoicing" class="form-checkbox"> Invoicing</label>
-                             <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Content repurposing" class="form-checkbox"> Content repurposing</label>
-                             <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Internal workflows" class="form-checkbox"> Internal workflows</label>
-                         </div>
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Appointment scheduling" class="form-checkbox"> Appointment scheduling</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Customer service" class="form-checkbox"> Customer service</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Lead capture" class="form-checkbox"> Lead capture</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Payment collection" class="form-checkbox"> Payment collection</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Online reviews" class="form-checkbox"> Online reviews</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Email/text marketing" class="form-checkbox"> Email/text marketing</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Onboarding" class="form-checkbox"> Onboarding</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Invoicing" class="form-checkbox"> Invoicing</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Content repurposing" class="form-checkbox"> Content repurposing</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="priority" value="Internal workflows" class="form-checkbox"> Internal workflows</label>
+                        </div>
                     </div>
                     <div class="grid md:grid-cols-2 gap-x-4">
                         <div>
@@ -1048,27 +1077,6 @@
                         <textarea id="notes" name="notes" rows="2" class="form-textarea"></textarea>
                     </div>
 
-                    <h2 class="form-section-heading">Select Your Appointment Time</h2>
-                    <div class="mb-4">
-                        <label for="selected-appointment" class="form-label">Selected Appointment:</label>
-                        <input type="text" id="selected-appointment" name="selectedAppointment" class="form-input bg-gray-600" readonly required>
-                    </div>
-
-                    <div class="calendar-container">
-                        <div class="calendar-header">
-                            <button id="prev-month-button">&lt;</button>
-                            <h3 id="month-year-display" class="text-xl font-semibold floating-text"></h3>
-                            <button id="next-month-button">&gt;</button>
-                        </div>
-                        <div class="calendar-grid">
-                            <!-- Day names will be generated by JS -->
-                        </div>
-                    </div>
-                    <div id="time-slots-container" class="time-slots-container">
-                        <!-- Time slots will be generated by JS -->
-                    </div>
-                    <div id="availability-status" class="availability-message mt-4"></div>
-
                     <button type="submit" class="fancy-button block w-full mt-6">Book My Free Consultation</button>
                 </form>
             </div>
@@ -1086,7 +1094,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // UPDATED: Central webhook URL
-            const webhookUrl = 'https://hook.us1.make.com/6sl5qgvpr5suuxy42ow2b3voxadj1f6g'; // Updated URL
+            const webhookUrl = 'https://hook.relay.app/api/v1/playbook/cmbs453lt01i90oj87m6z978n/trigger/rLvKtvgH6lT_q1kj4swryw';
             
             // Header scroll effect
             const header = document.getElementById('main-header');
@@ -1096,11 +1104,6 @@
                         header.classList.add('scrolled');
                     } else {
                         header.classList.remove('scrolled');
-                    }
-                    // Fix: Ensure the mobile menu is hidden when scrolling
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden') && window.scrollY > 50) {
-                        mobileMenu.classList.add('hidden');
                     }
                 });
             }
@@ -1144,8 +1147,9 @@
             // Floating CTA Bar Logic
             const floatingCtaBar = document.getElementById('floating-cta-bar');
             if (floatingCtaBar) {
-                // Changed from setTimeout to immediate visibility
-                floatingCtaBar.classList.add('visible'); 
+                setTimeout(() => {
+                    floatingCtaBar.classList.add('visible');
+                }, 5000); 
             }
 
             // Modal Logic
@@ -1153,7 +1157,7 @@
             const closeModalButton = document.getElementById('close-contact-modal-button');
             const modalOverlay = document.getElementById('contact-modal-overlay');
             const contactFormContainer = document.getElementById('contact-form-container');
-            const calendarViewContainer = document.getElementById('calendar-view-container'); 
+            const calendarViewContainer = document.getElementById('calendar-view-container');
             const contactForm = document.getElementById('contact-form');
             const selectedAppointmentInput = document.getElementById('selected-appointment');
             const availabilityStatusDiv = document.getElementById('availability-status');
@@ -1166,7 +1170,7 @@
             let currentMonthDate = new Date(); 
             let selectedDate = null;
             let selectedTime = null;
-            
+           
             function fireConfetti() {
                  if (typeof confetti !== 'function') { return; }
                  var duration = 1.5 * 1000; 
@@ -1177,40 +1181,19 @@
                      var timeLeft = animationEnd - Date.now();
                      if (timeLeft <= 0) { return clearInterval(interval); }
                      var particleCount = 50 * (timeLeft / duration);
-                     // Explicitly define properties for clarity and compatibility
-                     // This format ensures no unexpected parsing issues for the arguments.
-                     confetti({
-                         startVelocity: defaults.startVelocity,
-                         spread: defaults.spread,
-                         ticks: defaults.ticks,
-                         zIndex: defaults.zIndex,
-                         particleCount: particleCount,
-                         origin: { x: randomInRange(0.1, 0.3), y: randomInRange(0.2, 0.8) } 
-                     });
-                     confetti({
-                         startVelocity: defaults.startVelocity,
-                         spread: defaults.spread,
-                         ticks: defaults.ticks,
-                         zIndex: defaults.zIndex,
-                         particleCount: particleCount,
-                         origin: { x: randomInRange(0.7, 0.9), y: randomInRange(0.2, 0.8) } 
-                     });
+                     confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                     confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
                  }, 250);
             }
 
             function showModal() {
                 fireConfetti(); 
-                if(contactFormContainer) contactFormContainer.style.display = 'block'; 
-                if(submissionStatusContainer) submissionStatusContainer.style.display = 'none';
-                if(modalOverlay) modalOverlay.classList.add('visible');
-                // Render calendar on modal open, as it's now part of the initial view
                 renderCalendar(currentMonthDate); 
+                if(calendarViewContainer) calendarViewContainer.style.display = 'block';
+                if(contactFormContainer) contactFormContainer.style.display = 'none';
+                if(submissionStatusContainer) submissionStatusContainer.style.display = 'none';
                 if(availabilityStatusDiv) availabilityStatusDiv.textContent = 'Select a day to see available times.'; 
-                // Clear any previous selection or validation messages
-                selectedAppointmentInput.value = '';
-                selectedAppointmentInput.removeAttribute('data-selected'); // Custom attribute to track selection
-                if (formErrorMessageDiv) formErrorMessageDiv.style.display = 'none';
-
+                if(modalOverlay) modalOverlay.classList.add('visible');
             }
 
             function hideModal() {
@@ -1220,7 +1203,6 @@
                     selectedTime = null;
                     if(contactForm) contactForm.reset(); 
                     if(selectedAppointmentInput) selectedAppointmentInput.value = ''; 
-                    selectedAppointmentInput.removeAttribute('data-selected');
                     if(formErrorMessageDiv) formErrorMessageDiv.style.display = 'none';
                 }, 300);
             }
@@ -1233,31 +1215,11 @@
                     if (event.target === modalOverlay) hideModal();
                 });
             }
-            
-            // Add event listeners for the pricing CTA buttons to open the modal
-            const ctaStarterButton = document.getElementById('cta-starter');
-            const ctaGrowthButton = document.getElementById('cta-growth');
-            const ctaEnterpriseButton = document.getElementById('cta-enterprise');
-
-            if (ctaStarterButton) ctaStarterButton.addEventListener('click', (e) => { e.preventDefault(); showModal(); });
-            if (ctaGrowthButton) ctaGrowthButton.addEventListener('click', (e) => { e.preventDefault(); showModal(); });
-            if (ctaEnterpriseButton) ctaEnterpriseButton.addEventListener('click', (e) => { e.preventDefault(); showModal(); });
-
-
+           
             if (contactForm) {
                 contactForm.addEventListener('submit', async (event) => { 
                     event.preventDefault(); 
-                    
-                    // Validate that an appointment has been selected
-                    if (!selectedAppointmentInput.hasAttribute('data-selected') || selectedAppointmentInput.value === '') {
-                        if (formErrorMessageDiv) {
-                            formErrorMessageDiv.textContent = 'Please select a date and time for your consultation.';
-                            formErrorMessageDiv.style.display = 'block';
-                        }
-                        return; // Stop form submission
-                    }
-
-
+                   
                     const getCheckedValues = (name) => Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(cb => cb.value);
 
                     const formData = {
@@ -1280,7 +1242,7 @@
                         budget: document.getElementById('budget').value,
                         notes: document.getElementById('notes').value
                     };
-                    
+                   
                     const submitButton = contactForm.querySelector('button[type="submit"]');
                     const originalButtonText = submitButton.textContent;
                     submitButton.textContent = 'Sending...';
@@ -1307,7 +1269,7 @@
                             }
                         }
                     } catch (error) {
-                           if (formErrorMessageDiv) {
+                         if (formErrorMessageDiv) {
                                 formErrorMessageDiv.textContent = 'There was a network error. Please check your connection and try again.';
                                 formErrorMessageDiv.style.display = 'block';
                             }
@@ -1320,8 +1282,7 @@
 
             // --- Calendar Logic ---
             const monthYearDisplay = document.getElementById('month-year-display');
-            // calendarGrid and timeSlotsContainer are now direct children of contact-form
-            const calendarGrid = document.querySelector('#contact-form .calendar-grid'); 
+            const calendarGrid = document.querySelector('#contact-modal-overlay .calendar-grid'); 
             const prevMonthButton = document.getElementById('prev-month-button'); 
             const nextMonthButton = document.getElementById('next-month-button'); 
             const timeSlotsContainer = document.getElementById('time-slots-container'); 
@@ -1351,7 +1312,7 @@
                     const dayCell = document.createElement('div');
                     dayCell.classList.add('calendar-day');
                     dayCell.textContent = day;
-                    
+                   
                     const today = new Date();
                     today.setHours(0,0,0,0); 
                     const cellDate = new Date(year, month, day);
@@ -1365,53 +1326,37 @@
                     }
                     calendarGrid.appendChild(dayCell);
                 }
-                if(timeSlotsContainer) timeSlotsContainer.innerHTML = ''; // Clear time slots when month changes
+                if(timeSlotsContainer) timeSlotsContainer.innerHTML = ''; 
                 if(availabilityStatusDiv) availabilityStatusDiv.textContent = 'Select a day to see available times.'; 
             }
 
             function selectDate(dayCell, date) {
                 selectedDate = date;
-                document.querySelectorAll('#contact-form .calendar-day.selected').forEach(d => d.classList.remove('selected'));
+                document.querySelectorAll('#contact-modal-overlay .calendar-day.selected').forEach(d => d.classList.remove('selected'));
                 dayCell.classList.add('selected');
-                renderTimeSlots(date);
-                // Update selected appointment input temporarily or clear it until a time is chosen
-                selectedAppointmentInput.value = `${date.toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' })}`;
-                selectedAppointmentInput.removeAttribute('data-selected'); // Remove selection if only date is chosen
-                if (formErrorMessageDiv) formErrorMessageDiv.style.display = 'none'; // Clear error on date selection
+                renderStaticTimeSlots(date);
             }
 
-            // This function is now mostly for updating the input and status
-            function updateSelectedAppointment(time) {
+            function showFormView(time) {
                 selectedTime = time;
                 const formattedDate = selectedDate.toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
                 selectedAppointmentInput.value = `${formattedDate} at ${selectedTime}`;
-                selectedAppointmentInput.setAttribute('data-selected', 'true'); // Mark as selected
-                if(availabilityStatusDiv) {
-                    availabilityStatusDiv.textContent = 'Appointment selected. Please fill out the rest of the form.';
-                    availabilityStatusDiv.className = 'availability-message success';
-                }
-                if (formErrorMessageDiv) formErrorMessageDiv.style.display = 'none'; // Clear error on time selection
-
+                calendarViewContainer.style.display = 'none';
+                contactFormContainer.style.display = 'block';
+                document.getElementById('name').focus();
             }
             
-            // Generate time slots from 9 AM to 6 PM
-            function renderTimeSlots(date) {
+            // UPDATED: Reverted to static time slots to fix the error
+            function renderStaticTimeSlots(date) {
                 if (!timeSlotsContainer || !availabilityStatusDiv) return;
                 timeSlotsContainer.innerHTML = '';
                 
-                const availableTimes = [];
-                for (let i = 9; i <= 18; i++) { // 9 AM to 6 PM (18:00 in 24-hour format)
-                    const hour = i;
-                    const ampm = hour < 12 ? 'AM' : 'PM';
-                    const displayHour = hour > 12 ? hour - 12 : (hour === 0 ? 12 : hour); // Convert to 12-hour format, 12 AM/PM fix
-                    availableTimes.push(`${String(displayHour).padStart(2, '0')}:00 ${ampm}`);
-                }
+                const availableTimes = ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM", "04:00 PM"];
                 
                 const today = new Date();
                 const isToday = date.toDateString() === today.toDateString();
                 const currentHour = today.getHours();
-                const currentMinute = today.getMinutes(); 
-
+                
                 let hasAvailableSlots = false;
                 
                 availableTimes.forEach(time => {
@@ -1421,15 +1366,12 @@
 
                     let isPast = false;
                     if (isToday) {
-                        const [hourStr, minuteStr] = time.split(' ')[0].split(':');
-                        let slotHour24 = parseInt(hourStr);
-                        if (time.includes('PM') && slotHour24 !== 12) slotHour24 += 12;
-                        if (time.includes('AM') && slotHour24 === 12) slotHour24 = 0; 
-
-                        const slotMinute = parseInt(minuteStr);
-                        
-                        // Check if the slot is in the past, allowing for current hour if minutes are still in future
-                        if (slotHour24 < currentHour || (slotHour24 === currentHour && slotMinute <= currentMinute)) { 
+                        const slotHour = parseInt(time.split(':')[0]);
+                        const isPM = time.includes('PM');
+                        let slotHour24 = slotHour;
+                        if (isPM && slotHour !== 12) slotHour24 += 12;
+                        if (!isPM && slotHour === 12) slotHour24 = 0; 
+                        if (slotHour24 <= currentHour) { 
                             isPast = true;
                         }
                     }
@@ -1441,9 +1383,9 @@
                     } else {
                         hasAvailableSlots = true;
                         timeSlotButton.addEventListener('click', () => {
-                            document.querySelectorAll('#contact-form .time-slot.selected').forEach(ts => ts.classList.remove('selected'));
+                            document.querySelectorAll('#contact-modal-overlay .time-slot.selected').forEach(ts => ts.classList.remove('selected'));
                             timeSlotButton.classList.add('selected');
-                            updateSelectedAppointment(time); // Use the updated function
+                            showFormView(time); 
                         });
                     }
                     timeSlotsContainer.appendChild(timeSlotButton);
@@ -1466,12 +1408,12 @@
                 });
             }
             if(nextMonthButton) {
-                nextMonthButton.addEventListener('click', () => { 
+                nextMonthButton.addEventListener('click', () => {
                     currentMonthDate.setMonth(currentMonthDate.getMonth() + 1);
                     renderCalendar(currentMonthDate);
                 });
             }
-            
+           
             // --- FAQ Accordion Logic ---
             const faqItems = document.querySelectorAll('.faq-item');
             faqItems.forEach(item => {
